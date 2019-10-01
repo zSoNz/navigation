@@ -6,10 +6,6 @@ def rxSwift
   pod 'RxCocoa', '~> 5'
 end
 
-def uiKitLib
-    pod 'UIKitLib'
-end
-
 target 'Navigation' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
@@ -21,5 +17,5 @@ end
 target 'FlowComponents' do
    use_frameworks!
    rxSwift
-   uiKitLib
+   pod 'Sourcery'
 end

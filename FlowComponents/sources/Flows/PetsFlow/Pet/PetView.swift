@@ -33,8 +33,6 @@ public class PetView: MVVMView<Pet, PetViewEvents> {
     //MARK: Overrided
     
     override public func fill(with model: Pet) {
-        let model = model
-        
         self.image?.image = model.image
         self.name?.text = model.name
         self.age?.text = model.age.description
