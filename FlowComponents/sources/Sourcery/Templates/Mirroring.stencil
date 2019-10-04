@@ -1,0 +1,19 @@
+import Foundation
+
+{% macro associatedValueVarMultiType case %}({% for associatedValue in case.associatedValues %}{% if associatedValue.localName != nil %}{{ associatedValue.localName }}:{% endif %}{% if associatedValue.type.name != nil %}{{ associatedValue.type.name }}{% else %}{{ associatedValue.typeName }}{% endif %}{% if associatedValue.isOptional %}?{% endif %}{% if not forloop.last %}, {% endif %}{% endfor %})
+{% endmacro %}
+{% macro associatedValueVarUnitType case %}{% if associatedValue.localName != nil %}{{ associatedValue.localName }}:{% endif %}{% if case.associatedValues.first.type.name != nil %}{{ case.associatedValues.first.type.name }}?{% else %}{{ case.associatedValues.first.typeName }}{% endif %}{% endmacro %}
+
+{% for type in types.types where type.inherits.ViewModel or type|annotated:"ViewModel" %}
+    {% for struct in types.implementing.PropertyMirroring|struct where not type.accessLevel == 'private' %}
+extension {{ type.name }} {
+
+        {% for variable in struct.storedVariables %}
+         {% set varclass %}{% if variable.associatedValues.all.count > 1 %}{% call associatedValueVarMultiType variable %}{% else %}{% call associatedValueVarUnitType variable %}{% endif %}{% endset %}
+    var {{ struct.name|lowerFirstLetter }}{{ variable.name|upperFirstLetter }}: {{varclass}} {
+        return self.{{ struct.name|lowerFirstLetter }}.{{ variable.name }}
+    }
+}
+		{% endfor %}
+	{% endfor %}
+{% endfor %}

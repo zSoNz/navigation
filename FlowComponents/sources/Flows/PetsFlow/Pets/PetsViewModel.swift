@@ -10,6 +10,14 @@ import Foundation
 
 import Models
 
+struct Test: PropertyMirroring {
+    
+    let a: String
+}
+
+protocol PropertyContainer { }
+
 public class PetsViewModel: ViewModel<Pets, PetsViewEvents> {
+    let test: Test = Test(a: "w")
     
 }

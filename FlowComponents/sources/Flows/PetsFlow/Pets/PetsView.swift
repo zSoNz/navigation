@@ -10,10 +10,12 @@ import UIKit
 
 import Models
 
+protocol PropertyMirroring {}
+
 public enum PetsViewEvents: Events {
     
 }
 
 public class PetsView: MVVMView<Pets, PetsViewEvents> {
-
+    
 }

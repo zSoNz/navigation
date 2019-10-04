@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		966DFAEA23477926009869AC /* Mirroring.stencil in Resources */ = {isa = PBXBuildFile; fileRef = 966DFAE923477926009869AC /* Mirroring.stencil */; };
+		966DFAEC23477936009869AC /* Mirroring.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966DFAEB23477936009869AC /* Mirroring.generated.swift */; };
 		967363AF2343A0AD008695FB /* AutoEquatable.stencil in Sources */ = {isa = PBXBuildFile; fileRef = 967363AE2343A0AD008695FB /* AutoEquatable.stencil */; };
 		968B40AA232BDDA800350DB5 /* PetView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 968B40A7232BDD7000350DB5 /* PetView.xib */; };
 		968B40B4232BDFAF00350DB5 /* FlowComponents.h in Headers */ = {isa = PBXBuildFile; fileRef = 968B40B2232BDFAF00350DB5 /* FlowComponents.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -30,6 +32,7 @@
 		968B40EF232BE47D00350DB5 /* Models.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 968B40E7232BE47D00350DB5 /* Models.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		968B40F5232BE4A600350DB5 /* Pet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B4BB2423212E2E009661C8 /* Pet.swift */; };
 		968B40F6232BE4D600350DB5 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B4BB2D232130EC009661C8 /* Model.swift */; };
+		969ECC0F2344EBA10034478E /* AutoEquatable.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969ECC0D2344EB990034478E /* AutoEquatable.generated.swift */; };
 		96B4BAFE23211F03009661C8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B4BAFD23211F03009661C8 /* AppDelegate.swift */; };
 		96B4BB0523211F04009661C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96B4BB0423211F04009661C8 /* Assets.xcassets */; };
 		96B4BB0823211F04009661C8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96B4BB0623211F04009661C8 /* LaunchScreen.storyboard */; };
@@ -137,6 +140,8 @@
 		829E38131DD1437818EDEA75 /* Pods-FlowComponents.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlowComponents.release.xcconfig"; path = "Target Support Files/Pods-FlowComponents/Pods-FlowComponents.release.xcconfig"; sourceTree = "<group>"; };
 		85701D14F978214C4846FE2F /* Pods-ViewModels.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ViewModels.debug.xcconfig"; path = "Target Support Files/Pods-ViewModels/Pods-ViewModels.debug.xcconfig"; sourceTree = "<group>"; };
 		966031C8232A82CC00C25B3B /* Events.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Events.swift; sourceTree = "<group>"; };
+		966DFAE923477926009869AC /* Mirroring.stencil */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Mirroring.stencil; sourceTree = "<group>"; };
+		966DFAEB23477936009869AC /* Mirroring.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mirroring.generated.swift; sourceTree = "<group>"; };
 		967363AE2343A0AD008695FB /* AutoEquatable.stencil */ = {isa = PBXFileReference; lastKnownFileType = text; path = AutoEquatable.stencil; sourceTree = "<group>"; };
 		968B40A6232BDD7000350DB5 /* PetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetView.swift; sourceTree = "<group>"; };
 		968B40A7232BDD7000350DB5 /* PetView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PetView.xib; sourceTree = "<group>"; };
@@ -153,6 +158,7 @@
 		968B40E7232BE47D00350DB5 /* Models.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Models.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		968B40E9232BE47D00350DB5 /* Models.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Models.h; sourceTree = "<group>"; };
 		968B40EA232BE47D00350DB5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		969ECC0D2344EB990034478E /* AutoEquatable.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoEquatable.generated.swift; sourceTree = "<group>"; };
 		96B4BAFA23211F03009661C8 /* Navigation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Navigation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		96B4BAFD23211F03009661C8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		96B4BB0423211F04009661C8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -287,6 +293,7 @@
 		967363AD2343A043008695FB /* Templates */ = {
 			isa = PBXGroup;
 			children = (
+				966DFAE923477926009869AC /* Mirroring.stencil */,
 				967363AE2343A0AD008695FB /* AutoEquatable.stencil */,
 			);
 			path = Templates;
@@ -295,6 +302,8 @@
 		967363B12343A194008695FB /* ViewModelsExtensions */ = {
 			isa = PBXGroup;
 			children = (
+				966DFAEB23477936009869AC /* Mirroring.generated.swift */,
+				969ECC0D2344EB990034478E /* AutoEquatable.generated.swift */,
 			);
 			path = ViewModelsExtensions;
 			sourceTree = "<group>";
@@ -743,9 +752,9 @@
 				D1C01D0A36215296A7320D65 /* [CP] Check Pods Manifest.lock */,
 				968B40AB232BDFAF00350DB5 /* Headers */,
 				968B40AC232BDFAF00350DB5 /* Sources */,
-				968B40AD232BDFAF00350DB5 /* Frameworks */,
-				968B40AE232BDFAF00350DB5 /* Resources */,
 				967363A923439837008695FB /* Sourcery */,
+				968B40AE232BDFAF00350DB5 /* Resources */,
+				968B40AD232BDFAF00350DB5 /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -796,13 +805,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 96B4BB0C23211F04009661C8 /* Build configuration list for PBXNativeTarget "Navigation" */;
 			buildPhases = (
+				966031F1232A8E5100C25B3B /* Embed Frameworks */,
 				FC2528D7DBB880200F6AD4BD /* [CP] Check Pods Manifest.lock */,
 				96B4BAF623211F03009661C8 /* Sources */,
 				96B4BAF723211F03009661C8 /* Frameworks */,
 				96B4BAF823211F03009661C8 /* Resources */,
 				4A865EB609B86079FE1C5EF1 /* [CP] Embed Pods Frameworks */,
 				966031DF232A8E1700C25B3B /* Embed App Extensions */,
-				966031F1232A8E5100C25B3B /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -890,6 +899,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				966DFAEA23477926009869AC /* Mirroring.stencil in Resources */,
 				968B40BC232BDFD600350DB5 /* PetView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -960,7 +970,6 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(SRCROOT)/FlowComponents/sources/Sourcery/ViewModelsExtensions/AutoEquatable.generated.swift",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1017,6 +1026,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				969ECC0F2344EBA10034478E /* AutoEquatable.generated.swift in Sources */,
 				96FACFAC2330FF7A0003F86E /* NavigationFlowViewController.swift in Sources */,
 				96FACFA72330FF7A0003F86E /* FlowViewControllerOutEvent.swift in Sources */,
 				968B40C1232BDFE300350DB5 /* ViewModel.swift in Sources */,
@@ -1026,6 +1036,7 @@
 				968B40BE232BDFDB00350DB5 /* PetViewModel.swift in Sources */,
 				968B40C3232BDFE300350DB5 /* Events.swift in Sources */,
 				96E583272332564E0041EF79 /* PetsViewModel.swift in Sources */,
+				966DFAEC23477936009869AC /* Mirroring.generated.swift in Sources */,
 				968B40C0232BDFE300350DB5 /* MVVMView.swift in Sources */,
 				96FACFA82330FF7A0003F86E /* NavigationControllerContainer.swift in Sources */,
 				96FACF942330F4160003F86E /* PetsView.swift in Sources */,
