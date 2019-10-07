@@ -13,7 +13,7 @@ import Models
 import RxSwift
 import RxCocoa
 
-open class ViewModel<ModelType: Model, EventsType: Events>: PropertyContainer {
+open class ViewModel<ModelType: Model, EventsType: Events> {
 
     //MARK: -
     //MARK: Variables

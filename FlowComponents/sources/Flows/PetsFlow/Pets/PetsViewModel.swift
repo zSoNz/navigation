@@ -10,14 +10,12 @@ import Foundation
 
 import Models
 
-struct Test: PropertyMirroring {
+struct Animal: PropertyMirroring {
     
-    let a: String
+    public let name: String
 }
 
-protocol PropertyContainer { }
-
 public class PetsViewModel: ViewModel<Pets, PetsViewEvents> {
-    let test: Test = Test(a: "w")
+    let animal = Animal(name: "w")
     
 }

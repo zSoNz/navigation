@@ -47,3 +47,4 @@ public class PetViewModel: ViewModel<Pet, PetViewEvents> {
         }
     }
 }
+

@@ -3,17 +3,51 @@ import Foundation
 {% macro associatedValueVarMultiType case %}({% for associatedValue in case.associatedValues %}{% if associatedValue.localName != nil %}{{ associatedValue.localName }}:{% endif %}{% if associatedValue.type.name != nil %}{{ associatedValue.type.name }}{% else %}{{ associatedValue.typeName }}{% endif %}{% if associatedValue.isOptional %}?{% endif %}{% if not forloop.last %}, {% endif %}{% endfor %})
 {% endmacro %}
 {% macro associatedValueVarUnitType case %}{% if associatedValue.localName != nil %}{{ associatedValue.localName }}:{% endif %}{% if case.associatedValues.first.type.name != nil %}{{ case.associatedValues.first.type.name }}?{% else %}{{ case.associatedValues.first.typeName }}{% endif %}{% endmacro %}
+{% macro containsInheritedTypes case typeName %}
+    {% for inheritedType in case.inheritedTypes %}
+        {% if inheritedType|contains: typeName %}
+            "true"
+        {% endif %}
+    {% endfor %}
+{% endmacro %}
+{% macro isContaingVariableName case variableName %}
+    {% for variable in case.allVariables %}
+        
+        {% if variable.name == variableName or variable.name|hasSuffix: variableName %}
+            "true"
+        {% endif %}
+    {% endfor %}
+{% endmacro %}
+{% for type in types.classes %}
+    {% set isInheritedFromViewModel %} {% call containsInheritedTypes type "ViewModel" %} {% endset %}
+    {% if isInheritedFromViewModel|contains:"true" %}
+    
+public extension {{ type.name }} {
 
-{% for type in types.types where type.inherits.ViewModel or type|annotated:"ViewModel" %}
-    {% for struct in types.implementing.PropertyMirroring|struct where not type.accessLevel == 'private' %}
-extension {{ type.name }} {
-
-        {% for variable in struct.storedVariables %}
-         {% set varclass %}{% if variable.associatedValues.all.count > 1 %}{% call associatedValueVarMultiType variable %}{% else %}{% call associatedValueVarUnitType variable %}{% endif %}{% endset %}
-    var {{ struct.name|lowerFirstLetter }}{{ variable.name|upperFirstLetter }}: {{varclass}} {
-        return self.{{ struct.name|lowerFirstLetter }}.{{ variable.name }}
+        {% for variable in type.storedVariables %}
+            {% set isInheritedPropertyMirroring %}
+                {% call containsInheritedTypes variable.type "PropertyMirroring" %}
+            {% endset %}
+            
+            {% if isInheritedPropertyMirroring|contains:"true" %}
+                {% for mirroredVariable in variable.type.storedVariables %}
+                
+                {% set isParentDefineIt %}
+                    {% call isContaingVariableName type mirroredVariable.name %}
+                    {% call isContaingVariableName type mirroredVariable.name|upperFirstLetter %}
+                {% endset %}
+                
+                {% set varclass %}{% if mirroredVariable.associatedValues.all.count > 1 %}{% call associatedValueVarMultiType mirroredVariable %}{% else %}{% call associatedValueVarUnitType mirroredVariable %}{% endif %}{% endset %}
+                {% if not isParentDefineIt|contains:"true" %}
+    var {{ variable.name|lowerFirstLetter }}{{ mirroredVariable.name|upperFirstLetter }}: {{varclass}} {
+    
+        return self.{{ variable.name|lowerFirstLetter }}.{{ mirroredVariable.name }}
     }
+                {% endif %}
+                {% endfor %}
+            {% endif %}
+        {% endfor %}
 }
-		{% endfor %}
-	{% endfor %}
+
+    {% endif %}
 {% endfor %}

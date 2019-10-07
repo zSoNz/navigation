@@ -3,4 +3,14 @@
 
 import Foundation
 
+public extension PetViewModel {
+
+}
+
+public extension PetsViewModel {
+
+    var animalName: String {
+        return self.animal.name
+    }
+}
 

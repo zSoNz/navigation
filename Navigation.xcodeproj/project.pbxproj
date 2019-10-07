@@ -749,10 +749,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 968B40B9232BDFAF00350DB5 /* Build configuration list for PBXNativeTarget "FlowComponents" */;
 			buildPhases = (
+				967363A923439837008695FB /* Sourcery */,
 				D1C01D0A36215296A7320D65 /* [CP] Check Pods Manifest.lock */,
 				968B40AB232BDFAF00350DB5 /* Headers */,
 				968B40AC232BDFAF00350DB5 /* Sources */,
-				967363A923439837008695FB /* Sourcery */,
 				968B40AE232BDFAF00350DB5 /* Resources */,
 				968B40AD232BDFAF00350DB5 /* Frameworks */,
 			);
