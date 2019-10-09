@@ -11,6 +11,8 @@ import Foundation
 import FlowComponents
 import Models
 
+import Managers
+
 enum PetsFlowControllerEvents: FlowEventAction {
     
 }
@@ -23,15 +25,25 @@ class PetsFlowController: NavigationControllerContainer<NavigationControllerDefa
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.showPets()
+        self.showPet()
     }
     
     //MARK: -
     //MARK: Private
     
+    private func showPet() {
+        let provider = LocalPetsFetcherProvider()
+        let manager = RandomPetFetcherManager(provider: provider)
+        let configurator = PetConfigurator()
+        let viewModel = PetViewModel(manager: manager, configurator: configurator)
+        let view = PetView(viewModel: viewModel)
+        
+        self.pushViewController(view, animated: true)
+    }
+    
     private func showPets() {
-        let models = PetsConfigurator(pets: .init())
-        let viewModel = PetsViewModel(with: models)
+        let configurator = PetsConfigurator(pets: .init())
+        let viewModel = PetsViewModel(with: configurator)
         let view = PetsView(viewModel: viewModel)
         
         self.pushViewController(view, animated: true)

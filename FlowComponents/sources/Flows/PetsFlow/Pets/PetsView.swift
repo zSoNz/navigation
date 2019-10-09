@@ -12,6 +12,6 @@ public enum PetsViewEvents: Events {
     
 }
 
-public class PetsView: MVVMView<PetsConfigurator, PetsViewEvents> {
+public class PetsView: MVVMView<PetsViewModel, PetsConfigurator, PetsViewEvents> {
     
 }

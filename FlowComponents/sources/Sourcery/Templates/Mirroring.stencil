@@ -1,4 +1,5 @@
 import Foundation
+import Models
 
 {% macro associatedValueVarMultiType case %}({% for associatedValue in case.associatedValues %}{% if associatedValue.localName != nil %}{{ associatedValue.localName }}:{% endif %}{% if associatedValue.type.name != nil %}{{ associatedValue.type.name }}{% else %}{{ associatedValue.typeName }}{% endif %}{% if associatedValue.isOptional %}?{% endif %}{% if not forloop.last %}, {% endif %}{% endfor %})
 {% endmacro %}
@@ -26,7 +27,7 @@ public extension {{ type.name }} {
 
         {% for variable in type.storedVariables %}
             {% set isInheritedPropertyMirroring %}
-                {% call containsInheritedTypes variable.type "PropertyMirroring" %}
+                {% call containsInheritedTypes variable.type "Model" %}
             {% endset %}
             
             {% if isInheritedPropertyMirroring|contains:"true" %}

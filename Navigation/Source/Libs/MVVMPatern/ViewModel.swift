@@ -8,8 +8,6 @@
 
 import UIKit
 
-import Configurators
-
 import RxSwift
 import RxCocoa
 

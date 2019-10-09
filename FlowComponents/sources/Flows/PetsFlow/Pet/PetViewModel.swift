@@ -19,16 +19,30 @@ public class PetViewModel: ViewModel<PetConfigurator, PetViewEvents> {
     
     private let manager: RandomPetFetcherManager
     
-    public var pet: Pet
+    private(set) var pet: Pet
+    
+    var petName: String {
+        return self.pet.name.uppercased()
+    }
+    
+    var petAge: String {
+        let age = "ᕦ(ò_óˇ)ᕤ " + self.pet.age.description + " ᕦ(ò_óˇ)ᕤ"
+        return self.pet.isEmpty ? "-" : age
+    }
+    
+    var petType: String {
+        let type = self.pet.type.rawValue.uppercased() + "\n(●´ω `●)"
+        return self.pet.isEmpty ? "-" : type
+    }
     
     //MARK: -
     //MARK: Initializations
     
-    public init(manager: RandomPetFetcherManager, model: PetConfigurator) {
+    public init(manager: RandomPetFetcherManager, configurator: PetConfigurator) {
         self.manager = manager
-        self.pet = model.pet
+        self.pet = configurator.pet
         
-        super.init(with: model)
+        super.init(with: configurator)
     }
     
     //MARK: -

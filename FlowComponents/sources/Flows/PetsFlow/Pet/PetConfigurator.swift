@@ -12,5 +12,9 @@ import Models
 
 public struct PetConfigurator: Configurator {
     
-    let pet: Pet
+    public let pet: Pet
+    
+    public init(pet: Pet = .empty) {
+        self.pet = pet
+    }
 }

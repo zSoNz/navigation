@@ -8,19 +8,12 @@
 
 import UIKit
 
-import Configurators
-
 import RxSwift
 
-open class MVVMView<ConfiguratorType, EventsType>: UIViewController
-    where EventsType: Events, ConfiguratorType: Configurator
+open class MVVMView<ViewModelType, ConfiguratorType, EventsType>: UIViewController
+    where ViewModelType: ViewModel<ConfiguratorType, EventsType>, EventsType: Events, ConfiguratorType: Configurator
 {
 
-    //MARK: -
-    //MARK: Type Inferences
-    
-    public typealias ViewModelType = ViewModel<ConfiguratorType, EventsType>
-    
     //MARK: -
     //MARK: Accesors
     
