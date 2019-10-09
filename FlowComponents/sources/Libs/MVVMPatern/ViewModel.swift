@@ -53,7 +53,7 @@ open class ViewModel<ConfiguratorType: Configurator, EventsType: Events> {
     //MARK: -
     //MARK: Overriding
     
-    open func handle(events: EventsType) {
+    func handle(events: EventsType) {
         
     }
 }

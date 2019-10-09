@@ -59,7 +59,7 @@ public class PetViewModel: ViewModel<PetConfigurator, PetViewEvents> {
     //MARK: -
     //MARK: Overrided
     
-    override public func handle(events: PetViewEvents) {
+    override func handle(events: PetViewEvents) {
         switch events {
         case .randomizeButtonDidTapped:
             self.randomizePet()

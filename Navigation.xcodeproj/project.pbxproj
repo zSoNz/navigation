@@ -295,13 +295,21 @@
 			path = Pets;
 			sourceTree = "<group>";
 		};
-		966031F2232A8E9900C25B3B /* sources */ = {
+		964F6AF0234DD843009FF180 /* Libs */ = {
 			isa = PBXGroup;
 			children = (
 				967363AC234398DF008695FB /* Sourcery */,
-				9660320F232A940A00C25B3B /* Flows */,
 				96FACF992330FF7A0003F86E /* FlowControllers */,
 				96B4BB28232130B0009661C8 /* MVVMPatern */,
+			);
+			path = Libs;
+			sourceTree = "<group>";
+		};
+		966031F2232A8E9900C25B3B /* sources */ = {
+			isa = PBXGroup;
+			children = (
+				9660320F232A940A00C25B3B /* Flows */,
+				964F6AF0234DD843009FF180 /* Libs */,
 			);
 			path = sources;
 			sourceTree = "<group>";
@@ -483,8 +491,7 @@
 				96B4BB2B232130DC009661C8 /* ViewModel.swift */,
 				966031C8232A82CC00C25B3B /* Events.swift */,
 			);
-			name = MVVMPatern;
-			path = ../../Navigation/Source/Libs/MVVMPatern;
+			path = MVVMPatern;
 			sourceTree = "<group>";
 		};
 		96E582BF23323EC30041EF79 /* UIKitLib */ = {
@@ -974,7 +981,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"$PODS_ROOT/Sourcery/bin/sourcery\" --sources \"$SRCROOT/FlowComponents/sources/Flows\" --sources \"$SRCROOT/Models/sources\" --templates \"$SRCROOT/FlowComponents/sources/Sourcery/Templates\" --output \"$SRCROOT/FlowComponents/sources/Sourcery/ViewModelsExtensions\"\n";
+			shellScript = "\"$PODS_ROOT/Sourcery/bin/sourcery\" --sources \"$SRCROOT/FlowComponents/sources/Flows\" --sources \"$SRCROOT/Models/sources\" --templates \"$SRCROOT/FlowComponents/sources/Libs/Sourcery/Templates\" --output \"$SRCROOT/FlowComponents/sources/Libs/Sourcery/ViewModelsExtensions\"\n";
 		};
 		D1C01D0A36215296A7320D65 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
