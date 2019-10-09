@@ -13,7 +13,7 @@ import Foundation
 {% macro isContaingVariableName case variableName %}
     {% for variable in case.allVariables %}
         
-        {% if variable.name == variableName or variable.name|hasSuffix: variableName %}
+        {% if variable.name == variableName %}
             "true"
         {% endif %}
     {% endfor %}
@@ -32,14 +32,15 @@ public extension {{ type.name }} {
             {% if isInheritedPropertyMirroring|contains:"true" %}
                 {% for mirroredVariable in variable.type.storedVariables %}
                 
+                {% set mirroredVariableName %}{{ variable.name|lowerFirstLetter }}{{ mirroredVariable.name|upperFirstLetter }}{% endset %}
+                
                 {% set isParentDefineIt %}
-                    {% call isContaingVariableName type mirroredVariable.name %}
-                    {% call isContaingVariableName type mirroredVariable.name|upperFirstLetter %}
+                    {% call isContaingVariableName type mirroredVariableName %}
                 {% endset %}
                 
                 {% set varclass %}{% if mirroredVariable.associatedValues.all.count > 1 %}{% call associatedValueVarMultiType mirroredVariable %}{% else %}{% call associatedValueVarUnitType mirroredVariable %}{% endif %}{% endset %}
                 {% if not isParentDefineIt|contains:"true" %}
-    var {{ variable.name|lowerFirstLetter }}{{ mirroredVariable.name|upperFirstLetter }}: {{varclass}} {
+    var {{mirroredVariableName}}: {{varclass}} {
     
         return self.{{ variable.name|lowerFirstLetter }}.{{ mirroredVariable.name }}
     }
