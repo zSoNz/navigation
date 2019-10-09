@@ -12,7 +12,7 @@ import Managers
 
 import Models
 
-public class PetViewModel: ViewModel<PetConfigurator, PetViewEvents> {
+public class PetViewModel: ViewModel<PetConfigurator, PetViewModelEvents> {
     
     //MARK: -
     //MARK: Accesors
@@ -59,9 +59,9 @@ public class PetViewModel: ViewModel<PetConfigurator, PetViewEvents> {
     //MARK: -
     //MARK: Overrided
     
-    override func handle(events: PetViewEvents) {
+    override func handle(events: PetViewModelEvents) {
         switch events {
-        case .randomizeButtonDidTapped:
+        case .fetchRandomPet:
             self.randomizePet()
         }
     }

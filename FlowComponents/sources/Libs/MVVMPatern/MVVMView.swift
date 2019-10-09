@@ -10,18 +10,18 @@ import UIKit
 
 import RxSwift
 
-open class MVVMView<ViewModelType, ConfiguratorType, EventsType>: UIViewController
-    where ViewModelType: ViewModel<ConfiguratorType, EventsType>, EventsType: Events, ConfiguratorType: Configurator
+open class MVVMView<ViewModelType, ConfiguratorType, ViewModelEventsType>: UIViewController
+    where ViewModelType: ViewModel<ConfiguratorType, ViewModelEventsType>, ViewModelEventsType: Events, ConfiguratorType: Configurator
 {
 
     //MARK: -
     //MARK: Accesors
     
-    public var events: Observable<EventsType> {
+    public var events: Observable<ViewModelEventsType> {
         return self.eventsEmiter.asObserver()
     }
     
-    let eventsEmiter = PublishSubject<EventsType>()
+    let eventsEmiter = PublishSubject<ViewModelEventsType>()
     
     private let viewModel: ViewModelType
     private let disposeBag = DisposeBag()
@@ -69,11 +69,11 @@ open class MVVMView<ViewModelType, ConfiguratorType, EventsType>: UIViewControll
     //MARK: -
     //MARK: Overrding methods
     
-    open func fill(with viewModel: ViewModelType) {
+    func fill(with viewModel: ViewModelType) {
         
     }
     
-    open func prepareBindings(disposeBag: DisposeBag) {
+    func prepareBindings(disposeBag: DisposeBag) {
         
     }
 }

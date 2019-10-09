@@ -16,6 +16,23 @@
 		964F6AE9234DBDD0009FF180 /* Pets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964F6AE8234DBDD0009FF180 /* Pets.swift */; };
 		964F6AED234DBEB3009FF180 /* Pet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964F6AEC234DBEB3009FF180 /* Pet.swift */; };
 		964F6AEF234DBEFB009FF180 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964F6AEE234DBEFB009FF180 /* Model.swift */; };
+		964F6AF9234E1D6D009FF180 /* PetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964F6AF7234E1D6D009FF180 /* PetTableViewCell.swift */; };
+		964F6AFA234E1D6D009FF180 /* PetTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 964F6AF8234E1D6D009FF180 /* PetTableViewCell.xib */; };
+		964F6B15234E2182009FF180 /* TableAdapter.h in Headers */ = {isa = PBXBuildFile; fileRef = 964F6B13234E2182009FF180 /* TableAdapter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		964F6B18234E2182009FF180 /* TableAdapter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 964F6B11234E2182009FF180 /* TableAdapter.framework */; };
+		964F6B19234E2182009FF180 /* TableAdapter.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 964F6B11234E2182009FF180 /* TableAdapter.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		964F6B2B234E226C009FF180 /* F.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964F6B1F234E226C009FF180 /* F.swift */; };
+		964F6B2C234E226C009FF180 /* UITableView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964F6B21234E226C009FF180 /* UITableView+Extensions.swift */; };
+		964F6B2D234E226C009FF180 /* TableAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964F6B23234E226C009FF180 /* TableAdapter.swift */; };
+		964F6B2E234E226C009FF180 /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964F6B24234E226C009FF180 /* Section.swift */; };
+		964F6B2F234E226C009FF180 /* AnyCellType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964F6B26234E226C009FF180 /* AnyCellType.swift */; };
+		964F6B30234E226C009FF180 /* EmptyBaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964F6B27234E226C009FF180 /* EmptyBaseCell.swift */; };
+		964F6B31234E226C009FF180 /* BaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964F6B28234E226C009FF180 /* BaseCell.swift */; };
+		964F6B32234E226C009FF180 /* SectionImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964F6B2A234E226C009FF180 /* SectionImages.swift */; };
+		964F6B36234E2BD7009FF180 /* PetsFetcherManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964F6B34234E2BC1009FF180 /* PetsFetcherManager.swift */; };
+		964F6B3C234E2C3C009FF180 /* PetsFetcherManagerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964F6B39234E2C12009FF180 /* PetsFetcherManagerType.swift */; };
+		964F6B3D234E314A009FF180 /* PetTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 964F6AF8234E1D6D009FF180 /* PetTableViewCell.xib */; };
+		964F6B3E234E31F2009FF180 /* PetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964F6AF7234E1D6D009FF180 /* PetTableViewCell.swift */; };
 		966DFAEA23477926009869AC /* Mirroring.stencil in Resources */ = {isa = PBXBuildFile; fileRef = 966DFAE923477926009869AC /* Mirroring.stencil */; };
 		966DFAEC23477936009869AC /* Mirroring.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966DFAEB23477936009869AC /* Mirroring.generated.swift */; };
 		968B40AA232BDDA800350DB5 /* PetView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 968B40A7232BDD7000350DB5 /* PetView.xib */; };
@@ -80,6 +97,13 @@
 			remoteGlobalIDString = 964F6AD9234DBD7B009FF180;
 			remoteInfo = Models;
 		};
+		964F6B16234E2182009FF180 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 96B4BAF223211F03009661C8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 964F6B10234E2182009FF180;
+			remoteInfo = TableAdapter;
+		};
 		968B40B5232BDFAF00350DB5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 96B4BAF223211F03009661C8 /* Project object */;
@@ -120,6 +144,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				964F6B19234E2182009FF180 /* TableAdapter.framework in Embed Frameworks */,
 				964F6AE2234DBD7B009FF180 /* Models.framework in Embed Frameworks */,
 				968B40D1232BE08800350DB5 /* Managers.framework in Embed Frameworks */,
 				96E582C623323EC30041EF79 /* UIKitLib.framework in Embed Frameworks */,
@@ -150,6 +175,21 @@
 		964F6AE8234DBDD0009FF180 /* Pets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pets.swift; sourceTree = "<group>"; };
 		964F6AEC234DBEB3009FF180 /* Pet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pet.swift; sourceTree = "<group>"; };
 		964F6AEE234DBEFB009FF180 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		964F6AF7234E1D6D009FF180 /* PetTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetTableViewCell.swift; sourceTree = "<group>"; };
+		964F6AF8234E1D6D009FF180 /* PetTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PetTableViewCell.xib; sourceTree = "<group>"; };
+		964F6B11234E2182009FF180 /* TableAdapter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TableAdapter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		964F6B13234E2182009FF180 /* TableAdapter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TableAdapter.h; sourceTree = "<group>"; };
+		964F6B14234E2182009FF180 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		964F6B1F234E226C009FF180 /* F.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = F.swift; sourceTree = "<group>"; };
+		964F6B21234E226C009FF180 /* UITableView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+Extensions.swift"; sourceTree = "<group>"; };
+		964F6B23234E226C009FF180 /* TableAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableAdapter.swift; sourceTree = "<group>"; };
+		964F6B24234E226C009FF180 /* Section.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
+		964F6B26234E226C009FF180 /* AnyCellType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnyCellType.swift; sourceTree = "<group>"; };
+		964F6B27234E226C009FF180 /* EmptyBaseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyBaseCell.swift; sourceTree = "<group>"; };
+		964F6B28234E226C009FF180 /* BaseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseCell.swift; sourceTree = "<group>"; };
+		964F6B2A234E226C009FF180 /* SectionImages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionImages.swift; sourceTree = "<group>"; };
+		964F6B34234E2BC1009FF180 /* PetsFetcherManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetsFetcherManager.swift; sourceTree = "<group>"; };
+		964F6B39234E2C12009FF180 /* PetsFetcherManagerType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetsFetcherManagerType.swift; sourceTree = "<group>"; };
 		966031C8232A82CC00C25B3B /* Events.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Events.swift; sourceTree = "<group>"; };
 		966DFAE923477926009869AC /* Mirroring.stencil */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Mirroring.stencil; sourceTree = "<group>"; };
 		966DFAEB23477936009869AC /* Mirroring.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mirroring.generated.swift; sourceTree = "<group>"; };
@@ -218,6 +258,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		964F6B0E234E2182009FF180 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		968B40AD232BDFAF00350DB5 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -238,6 +285,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E182D159A1B7CE7A85DE7E71 /* Pods_Navigation.framework in Frameworks */,
+				964F6B18234E2182009FF180 /* TableAdapter.framework in Frameworks */,
 				968B40B7232BDFAF00350DB5 /* FlowComponents.framework in Frameworks */,
 				964F6AE1234DBD7B009FF180 /* Models.framework in Frameworks */,
 				968B40D0232BE08800350DB5 /* Managers.framework in Frameworks */,
@@ -303,6 +351,98 @@
 				96B4BB28232130B0009661C8 /* MVVMPatern */,
 			);
 			path = Libs;
+			sourceTree = "<group>";
+		};
+		964F6AF1234E1D33009FF180 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				964F6AF7234E1D6D009FF180 /* PetTableViewCell.swift */,
+				964F6AF8234E1D6D009FF180 /* PetTableViewCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		964F6B12234E2182009FF180 /* TableAdapter */ = {
+			isa = PBXGroup;
+			children = (
+				964F6B1D234E226C009FF180 /* source */,
+				964F6B13234E2182009FF180 /* TableAdapter.h */,
+				964F6B14234E2182009FF180 /* Info.plist */,
+			);
+			path = TableAdapter;
+			sourceTree = "<group>";
+		};
+		964F6B1D234E226C009FF180 /* source */ = {
+			isa = PBXGroup;
+			children = (
+				964F6B1E234E226C009FF180 /* F */,
+				964F6B20234E226C009FF180 /* Extensions */,
+				964F6B22234E226C009FF180 /* Manager */,
+			);
+			path = source;
+			sourceTree = "<group>";
+		};
+		964F6B1E234E226C009FF180 /* F */ = {
+			isa = PBXGroup;
+			children = (
+				964F6B1F234E226C009FF180 /* F.swift */,
+			);
+			path = F;
+			sourceTree = "<group>";
+		};
+		964F6B20234E226C009FF180 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				964F6B21234E226C009FF180 /* UITableView+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		964F6B22234E226C009FF180 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				964F6B23234E226C009FF180 /* TableAdapter.swift */,
+				964F6B24234E226C009FF180 /* Section.swift */,
+				964F6B25234E226C009FF180 /* AnyCellType */,
+				964F6B29234E226C009FF180 /* SectionImage */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		964F6B25234E226C009FF180 /* AnyCellType */ = {
+			isa = PBXGroup;
+			children = (
+				964F6B26234E226C009FF180 /* AnyCellType.swift */,
+				964F6B27234E226C009FF180 /* EmptyBaseCell.swift */,
+				964F6B28234E226C009FF180 /* BaseCell.swift */,
+			);
+			path = AnyCellType;
+			sourceTree = "<group>";
+		};
+		964F6B29234E226C009FF180 /* SectionImage */ = {
+			isa = PBXGroup;
+			children = (
+				964F6B2A234E226C009FF180 /* SectionImages.swift */,
+			);
+			path = SectionImage;
+			sourceTree = "<group>";
+		};
+		964F6B37234E2BF1009FF180 /* PetManager */ = {
+			isa = PBXGroup;
+			children = (
+				968B40DE232BE28600350DB5 /* RandomPetFetcherManager.swift */,
+				968B40E0232BE2BE00350DB5 /* PetFetcherManagerType.swift */,
+			);
+			path = PetManager;
+			sourceTree = "<group>";
+		};
+		964F6B38234E2BFC009FF180 /* PetsManager */ = {
+			isa = PBXGroup;
+			children = (
+				964F6B34234E2BC1009FF180 /* PetsFetcherManager.swift */,
+				964F6B39234E2C12009FF180 /* PetsFetcherManagerType.swift */,
+			);
+			path = PetsManager;
 			sourceTree = "<group>";
 		};
 		966031F2232A8E9900C25B3B /* sources */ = {
@@ -407,8 +547,8 @@
 		968B40DD232BE27100350DB5 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
-				968B40DE232BE28600350DB5 /* RandomPetFetcherManager.swift */,
-				968B40E0232BE2BE00350DB5 /* PetFetcherManagerType.swift */,
+				964F6B38234E2BFC009FF180 /* PetsManager */,
+				964F6B37234E2BF1009FF180 /* PetManager */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -432,6 +572,7 @@
 				968B40C9232BE08800350DB5 /* Managers.framework */,
 				96E582BE23323EC30041EF79 /* UIKitLib.framework */,
 				964F6ADA234DBD7B009FF180 /* Models.framework */,
+				964F6B11234E2182009FF180 /* TableAdapter.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -620,6 +761,7 @@
 				96FACF8F2330F3BC0003F86E /* PetsView.xib */,
 				96FACF922330F3D10003F86E /* PetsViewModel.swift */,
 				964F6ACA234DB940009FF180 /* PetsConfigurator.swift */,
+				964F6AF1234E1D33009FF180 /* Cells */,
 			);
 			path = Pets;
 			sourceTree = "<group>";
@@ -627,9 +769,10 @@
 		96FACF952330F5000003F86E /* Libs */ = {
 			isa = PBXGroup;
 			children = (
+				968B40B1232BDFAF00350DB5 /* FlowComponents */,
+				964F6B12234E2182009FF180 /* TableAdapter */,
 				964F6ADB234DBD7B009FF180 /* Models */,
 				96E582BF23323EC30041EF79 /* UIKitLib */,
-				968B40B1232BDFAF00350DB5 /* FlowComponents */,
 				968B40CA232BE08800350DB5 /* Managers */,
 			);
 			name = Libs;
@@ -725,6 +868,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		964F6B0C234E2182009FF180 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				964F6B15234E2182009FF180 /* TableAdapter.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		968B40AB232BDFAF00350DB5 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -768,6 +919,24 @@
 			name = Models;
 			productName = Models;
 			productReference = 964F6ADA234DBD7B009FF180 /* Models.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		964F6B10234E2182009FF180 /* TableAdapter */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 964F6B1A234E2182009FF180 /* Build configuration list for PBXNativeTarget "TableAdapter" */;
+			buildPhases = (
+				964F6B0C234E2182009FF180 /* Headers */,
+				964F6B0D234E2182009FF180 /* Sources */,
+				964F6B0E234E2182009FF180 /* Frameworks */,
+				964F6B0F234E2182009FF180 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TableAdapter;
+			productName = TableAdapter;
+			productReference = 964F6B11234E2182009FF180 /* TableAdapter.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		968B40AF232BDFAF00350DB5 /* FlowComponents */ = {
@@ -827,6 +996,7 @@
 				96E582C423323EC30041EF79 /* PBXTargetDependency */,
 				968B40B6232BDFAF00350DB5 /* PBXTargetDependency */,
 				964F6AE0234DBD7B009FF180 /* PBXTargetDependency */,
+				964F6B17234E2182009FF180 /* PBXTargetDependency */,
 			);
 			name = Navigation;
 			productName = Navigation;
@@ -865,6 +1035,9 @@
 						CreatedOnToolsVersion = 11.0;
 						LastSwiftMigration = 1100;
 					};
+					964F6B10234E2182009FF180 = {
+						CreatedOnToolsVersion = 11.0;
+					};
 					968B40AF232BDFAF00350DB5 = {
 						CreatedOnToolsVersion = 10.2.1;
 					};
@@ -898,6 +1071,7 @@
 				96E582BD23323EC30041EF79 /* UIKitLib */,
 				968B40AF232BDFAF00350DB5 /* FlowComponents */,
 				96B4BAF923211F03009661C8 /* Navigation */,
+				964F6B10234E2182009FF180 /* TableAdapter */,
 			);
 		};
 /* End PBXProject section */
@@ -910,10 +1084,18 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		964F6B0F234E2182009FF180 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		968B40AE232BDFAF00350DB5 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				964F6AFA234E1D6D009FF180 /* PetTableViewCell.xib in Resources */,
 				966DFAEA23477926009869AC /* Mirroring.stencil in Resources */,
 				968B40BC232BDFD600350DB5 /* PetView.xib in Resources */,
 			);
@@ -931,6 +1113,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				96FACF912330F3BC0003F86E /* PetsView.xib in Resources */,
+				964F6B3D234E314A009FF180 /* PetTableViewCell.xib in Resources */,
 				968B40AA232BDDA800350DB5 /* PetView.xib in Resources */,
 				96B4BB0823211F04009661C8 /* LaunchScreen.storyboard in Resources */,
 				96B4BB0523211F04009661C8 /* Assets.xcassets in Resources */,
@@ -1040,6 +1223,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		964F6B0D234E2182009FF180 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				964F6B30234E226C009FF180 /* EmptyBaseCell.swift in Sources */,
+				964F6B32234E226C009FF180 /* SectionImages.swift in Sources */,
+				964F6B2B234E226C009FF180 /* F.swift in Sources */,
+				964F6B2F234E226C009FF180 /* AnyCellType.swift in Sources */,
+				964F6B2E234E226C009FF180 /* Section.swift in Sources */,
+				964F6B31234E226C009FF180 /* BaseCell.swift in Sources */,
+				964F6B2C234E226C009FF180 /* UITableView+Extensions.swift in Sources */,
+				964F6B2D234E226C009FF180 /* TableAdapter.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		968B40AC232BDFAF00350DB5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1057,6 +1255,7 @@
 				968B40C3232BDFE300350DB5 /* Events.swift in Sources */,
 				96E583272332564E0041EF79 /* PetsViewModel.swift in Sources */,
 				966DFAEC23477936009869AC /* Mirroring.generated.swift in Sources */,
+				964F6AF9234E1D6D009FF180 /* PetTableViewCell.swift in Sources */,
 				964F6AD2234DBCF6009FF180 /* PetsConfigurator.swift in Sources */,
 				968B40C0232BDFE300350DB5 /* MVVMView.swift in Sources */,
 				96FACFA82330FF7A0003F86E /* NavigationControllerContainer.swift in Sources */,
@@ -1071,6 +1270,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				968B40E1232BE2BE00350DB5 /* PetFetcherManagerType.swift in Sources */,
+				964F6B3C234E2C3C009FF180 /* PetsFetcherManagerType.swift in Sources */,
+				964F6B36234E2BD7009FF180 /* PetsFetcherManager.swift in Sources */,
 				968B40DF232BE28600350DB5 /* RandomPetFetcherManager.swift in Sources */,
 				968B40DB232BE11800350DB5 /* PetsFetcherProviderType.swift in Sources */,
 				968B40D9232BE0F300350DB5 /* LocalPetsFetcherProvider.swift in Sources */,
@@ -1082,6 +1283,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				96E583212332539A0041EF79 /* AppFlowController.swift in Sources */,
+				964F6B3E234E31F2009FF180 /* PetTableViewCell.swift in Sources */,
 				96B4BAFE23211F03009661C8 /* AppDelegate.swift in Sources */,
 				96E58325233254CC0041EF79 /* PetsFlowController.swift in Sources */,
 			);
@@ -1114,6 +1316,11 @@
 			isa = PBXTargetDependency;
 			target = 964F6AD9234DBD7B009FF180 /* Models */;
 			targetProxy = 964F6ADF234DBD7B009FF180 /* PBXContainerItemProxy */;
+		};
+		964F6B17234E2182009FF180 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 964F6B10234E2182009FF180 /* TableAdapter */;
+			targetProxy = 964F6B16234E2182009FF180 /* PBXContainerItemProxy */;
 		};
 		968B40B6232BDFAF00350DB5 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -1203,6 +1410,62 @@
 			};
 			name = Release;
 		};
+		964F6B1B234E2182009FF180 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = QH2N53SU9B;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = TableAdapter/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.bendis.TableAdapter;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		964F6B1C234E2182009FF180 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = QH2N53SU9B;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = TableAdapter/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.bendis.TableAdapter;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		968B40BA232BDFAF00350DB5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2E53769B4E5D1ACFDDA44459 /* Pods-FlowComponents.debug.xcconfig */;
@@ -1222,9 +1485,11 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				OTHER_SWIFT_FLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bendis.FlowComponents;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1540,6 +1805,15 @@
 			buildConfigurations = (
 				964F6AE4234DBD7B009FF180 /* Debug */,
 				964F6AE5234DBD7B009FF180 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		964F6B1A234E2182009FF180 /* Build configuration list for PBXNativeTarget "TableAdapter" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				964F6B1B234E2182009FF180 /* Debug */,
+				964F6B1C234E2182009FF180 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -25,7 +25,7 @@ class PetsFlowController: NavigationControllerContainer<NavigationControllerDefa
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.showPet()
+        self.showPets()
     }
     
     //MARK: -
@@ -42,8 +42,10 @@ class PetsFlowController: NavigationControllerContainer<NavigationControllerDefa
     }
     
     private func showPets() {
+        let provider = LocalPetsFetcherProvider()
+        let manager = PetsFetcherManager(provider: provider)
         let configurator = PetsConfigurator(pets: .init())
-        let viewModel = PetsViewModel(with: configurator)
+        let viewModel = PetsViewModel(with: configurator, manager: manager)
         let view = PetsView(viewModel: viewModel)
         
         self.pushViewController(view, animated: true)
