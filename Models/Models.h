@@ -2,11 +2,11 @@
 //  Models.h
 //  Models
 //
-//  Created by IDAP Developer on 9/13/19.
+//  Created by IDAP Developer on 10/9/19.
 //  Copyright © 2019 Bendis. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
 
 //! Project version number for Models.
 FOUNDATION_EXPORT double ModelsVersionNumber;

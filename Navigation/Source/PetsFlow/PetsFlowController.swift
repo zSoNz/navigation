@@ -30,7 +30,7 @@ class PetsFlowController: NavigationControllerContainer<NavigationControllerDefa
     //MARK: Private
     
     private func showPets() {
-        let models = Pets()
+        let models = PetsConfigurator(pets: .init())
         let viewModel = PetsViewModel(with: models)
         let view = PetsView(viewModel: viewModel)
         

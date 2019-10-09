@@ -8,18 +8,18 @@
 
 import UIKit
 
-import Models
+import Configurators
 
 import RxSwift
 
-open class MVVMView<ModelType, EventsType>: UIViewController
-    where EventsType: Events, ModelType: Model
+open class MVVMView<ConfiguratorType, EventsType>: UIViewController
+    where EventsType: Events, ConfiguratorType: Configurator
 {
 
     //MARK: -
     //MARK: Type Inferences
     
-    public typealias ViewModelType = ViewModel<ModelType, EventsType>
+    public typealias ViewModelType = ViewModel<ConfiguratorType, EventsType>
     
     //MARK: -
     //MARK: Accesors
@@ -54,7 +54,7 @@ open class MVVMView<ModelType, EventsType>: UIViewController
     override open func viewDidLoad() {
         super.viewDidLoad()
         
-        self.fill(with: self.viewModel.modelEmiter.value)
+        self.fill(with: self.viewModel)
         self.prepareBindings(disposeBag: self.disposeBag)
     }
     
@@ -63,7 +63,8 @@ open class MVVMView<ModelType, EventsType>: UIViewController
     
     private func prepareViewModelHandling() {
         self.viewModel
-            .modelEmiter
+            .eventsEmiter
+            .compactMap { [weak self] _ in self?.viewModel }
             .subscribe(onNext: self.fill)
             .disposed(by: self.disposeBag)
         
@@ -75,7 +76,7 @@ open class MVVMView<ModelType, EventsType>: UIViewController
     //MARK: -
     //MARK: Overrding methods
     
-    open func fill(with model: ModelType) {
+    open func fill(with viewModel: ViewModelType) {
         
     }
     

@@ -8,31 +8,37 @@
 
 import UIKit
 
-import Models
+import Configurators
 
 import RxSwift
 import RxCocoa
 
-open class ViewModel<ModelType: Model, EventsType: Events> {
+public enum ViewModelEvents {
+    
+    case didUpdated
+}
+
+open class ViewModel<ConfiguratorType: Configurator, EventsType: Events> {
 
     //MARK: -
     //MARK: Variables
     
     public let handler = PublishSubject<EventsType>()
     
-    public var model: Observable<ModelType> {
-        return self.modelEmiter.asObservable()
+    public var events: Observable<ViewModelEvents> {
+        return self.eventsEmiter.asObservable()
     }
     
-    internal let modelEmiter: BehaviorRelay<ModelType>
+    internal let eventsEmiter = PublishSubject<ViewModelEvents>()
+    internal let configurator: ConfiguratorType
     
     private let disposeBag = DisposeBag()
     
     //MARK: -
     //MARK: Initializations
     
-    public init(with model: ModelType) {
-        self.modelEmiter = BehaviorRelay(value: model)
+    public init(with configurator: ConfiguratorType) {
+        self.configurator = configurator
         
         self.prepareHandling()
     }

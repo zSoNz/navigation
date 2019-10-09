@@ -8,26 +8,6 @@
 
 import Foundation
 
-import Models
-
-struct Fruit: PropertyMirroring {
+public class PetsViewModel: ViewModel<PetsConfigurator, PetsViewEvents> {
     
-    public let name: String
-    public let type: Int
-}
-
-struct Animal: PropertyMirroring {
-    
-    public let name: String
-    public let type: Int
-}
-
-public class PetsViewModel: ViewModel<Pets, PetsViewEvents> {
-    
-    let animal = Animal(name: "w", type: 1)
-    let fruit = Fruit(name: "e", type: 2)
-    
-    var fruitName: String {
-        return ""
-    }
 }

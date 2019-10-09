@@ -1,5 +1,5 @@
 //
-//  Model.swift
+//  PetConfigurator.swift
 //  Navigation
 //
 //  Created by IDAP Developer on 9/5/19.
@@ -8,6 +8,9 @@
 
 import UIKit
 
-public protocol Model: Equatable {
+import Models
 
+public struct PetConfigurator: Configurator {
+    
+    let pet: Pet
 }

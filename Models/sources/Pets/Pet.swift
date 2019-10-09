@@ -1,8 +1,8 @@
 //
-//  PetModel.swift
-//  Navigation
+//  Pet.swift
+//  Models
 //
-//  Created by IDAP Developer on 9/5/19.
+//  Created by IDAP Developer on 10/9/19.
 //  Copyright © 2019 Bendis. All rights reserved.
 //
 

@@ -8,7 +8,7 @@
 
 import UIKit
 
-import Models
+import Configurators
 
 import RxSwift
 import RxCocoa
@@ -18,7 +18,7 @@ public enum PetViewEvents: Events {
     case randomizeButtonDidTapped
 }
 
-public class PetView: MVVMView<Pet, PetViewEvents> {
+public class PetView: MVVMView<PetConfigurator, PetViewEvents> {
     
     //MARK: -
     //MARK: Outlets
@@ -32,11 +32,12 @@ public class PetView: MVVMView<Pet, PetViewEvents> {
     //MARK: -
     //MARK: Overrided
     
-    override public func fill(with model: Pet) {
-        self.image?.image = model.image
-        self.name?.text = model.name
-        self.age?.text = model.age.description
-        self.type?.text = model.type.rawValue.uppercased()
+    public override func fill(with viewModel: ViewModel<PetConfigurator, PetViewEvents>) {
+        
+//        self.image?.image = model.image
+//        self.name?.text = model.name
+//        self.age?.text = model.age.description
+//        self.type?.text = model.type.rawValue.uppercased()
     }
     
     override public func prepareBindings(disposeBag: DisposeBag) {

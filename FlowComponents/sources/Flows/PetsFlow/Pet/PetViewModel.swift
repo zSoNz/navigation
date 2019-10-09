@@ -12,18 +12,21 @@ import Managers
 
 import Models
 
-public class PetViewModel: ViewModel<Pet, PetViewEvents> {
+public class PetViewModel: ViewModel<PetConfigurator, PetViewEvents> {
     
     //MARK: -
     //MARK: Accesors
     
     private let manager: RandomPetFetcherManager
     
+    public var pet: Pet
+    
     //MARK: -
     //MARK: Initializations
     
-    public init(manager: RandomPetFetcherManager, model: Pet) {
+    public init(manager: RandomPetFetcherManager, model: PetConfigurator) {
         self.manager = manager
+        self.pet = model.pet
         
         super.init(with: model)
     }
@@ -33,7 +36,9 @@ public class PetViewModel: ViewModel<Pet, PetViewEvents> {
     
     private func randomizePet() {
         self.manager.pet { [weak self] in
-            self?.modelEmiter.accept($0)
+            self?.pet = $0
+            
+            self?.eventsEmiter.onNext(.didUpdated)
         }
     }
     

@@ -9,14 +9,5 @@ public extension PetViewModel {
 
 public extension PetsViewModel {
 
-    var animalName: String {
-        return self.animal.name
-    }
-    var animalType: Int {
-        return self.animal.type
-    }
-    var fruitType: Int {
-        return self.fruit.type
-    }
 }
 

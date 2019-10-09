@@ -10,7 +10,7 @@ import UIKit
 
 import FlowComponents
 import Managers
-import Models
+import Configurators
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

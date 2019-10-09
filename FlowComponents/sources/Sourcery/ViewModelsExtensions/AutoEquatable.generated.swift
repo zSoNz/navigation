@@ -33,5 +33,15 @@ fileprivate func compareArrays<T>(lhs: [T], rhs: [T], compare: (_ lhs: T, _ rhs:
 
 
 // MARK: - AutoEquatable for classes, protocols, structs
+// MARK: - PetConfigurator AutoEquatable
+extension PetConfigurator: Equatable {}
+public func == (lhs: PetConfigurator, rhs: PetConfigurator) -> Bool {
+    return lhs.pet == rhs.pet
+}
+// MARK: - PetsConfigurator AutoEquatable
+extension PetsConfigurator: Equatable {}
+public func == (lhs: PetsConfigurator, rhs: PetsConfigurator) -> Bool {
+    return lhs.pets == rhs.pets
+}
 
 // MARK: - AutoEquatable for Enums
