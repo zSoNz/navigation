@@ -90,20 +90,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		964F6ADF234DBD7B009FF180 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 96B4BAF223211F03009661C8 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 964F6AD9234DBD7B009FF180;
-			remoteInfo = Models;
-		};
-		964F6B16234E2182009FF180 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 96B4BAF223211F03009661C8 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 964F6B10234E2182009FF180;
-			remoteInfo = TableAdapter;
-		};
 		968B40B5232BDFAF00350DB5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 96B4BAF223211F03009661C8 /* Project object */;
@@ -111,14 +97,35 @@
 			remoteGlobalIDString = 968B40AF232BDFAF00350DB5;
 			remoteInfo = FlowComponents;
 		};
-		968B40CE232BE08800350DB5 /* PBXContainerItemProxy */ = {
+		96F1D0B5235DE3E0003D7B60 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 96B4BAF223211F03009661C8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 964F6AD9234DBD7B009FF180;
+			remoteInfo = Models;
+		};
+		96F1D0B7235DE3E7003D7B60 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 96B4BAF223211F03009661C8 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 968B40C8232BE08800350DB5;
 			remoteInfo = Managers;
 		};
-		96E582C323323EC30041EF79 /* PBXContainerItemProxy */ = {
+		96F1D0B9235DE3E9003D7B60 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 96B4BAF223211F03009661C8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 96E582BD23323EC30041EF79;
+			remoteInfo = UIKitLib;
+		};
+		96F1D0BB235DE3F1003D7B60 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 96B4BAF223211F03009661C8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 964F6B10234E2182009FF180;
+			remoteInfo = TableAdapter;
+		};
+		96F1D0BD235DE517003D7B60 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 96B4BAF223211F03009661C8 /* Project object */;
 			proxyType = 1;
@@ -915,6 +922,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				96F1D0BE235DE517003D7B60 /* PBXTargetDependency */,
 			);
 			name = Models;
 			productName = Models;
@@ -953,6 +961,9 @@
 			buildRules = (
 			);
 			dependencies = (
+				96F1D0BA235DE3E9003D7B60 /* PBXTargetDependency */,
+				96F1D0BC235DE3F1003D7B60 /* PBXTargetDependency */,
+				96F1D0B8235DE3E7003D7B60 /* PBXTargetDependency */,
 			);
 			name = FlowComponents;
 			productName = FlowComponents;
@@ -971,6 +982,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				96F1D0B6235DE3E0003D7B60 /* PBXTargetDependency */,
 			);
 			name = Managers;
 			productName = Managers;
@@ -992,11 +1004,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				968B40CF232BE08800350DB5 /* PBXTargetDependency */,
-				96E582C423323EC30041EF79 /* PBXTargetDependency */,
 				968B40B6232BDFAF00350DB5 /* PBXTargetDependency */,
-				964F6AE0234DBD7B009FF180 /* PBXTargetDependency */,
-				964F6B17234E2182009FF180 /* PBXTargetDependency */,
 			);
 			name = Navigation;
 			productName = Navigation;
@@ -1070,8 +1078,8 @@
 				968B40C8232BE08800350DB5 /* Managers */,
 				96E582BD23323EC30041EF79 /* UIKitLib */,
 				968B40AF232BDFAF00350DB5 /* FlowComponents */,
-				96B4BAF923211F03009661C8 /* Navigation */,
 				964F6B10234E2182009FF180 /* TableAdapter */,
+				96B4BAF923211F03009661C8 /* Navigation */,
 			);
 		};
 /* End PBXProject section */
@@ -1312,30 +1320,35 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		964F6AE0234DBD7B009FF180 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 964F6AD9234DBD7B009FF180 /* Models */;
-			targetProxy = 964F6ADF234DBD7B009FF180 /* PBXContainerItemProxy */;
-		};
-		964F6B17234E2182009FF180 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 964F6B10234E2182009FF180 /* TableAdapter */;
-			targetProxy = 964F6B16234E2182009FF180 /* PBXContainerItemProxy */;
-		};
 		968B40B6232BDFAF00350DB5 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 968B40AF232BDFAF00350DB5 /* FlowComponents */;
 			targetProxy = 968B40B5232BDFAF00350DB5 /* PBXContainerItemProxy */;
 		};
-		968B40CF232BE08800350DB5 /* PBXTargetDependency */ = {
+		96F1D0B6235DE3E0003D7B60 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 964F6AD9234DBD7B009FF180 /* Models */;
+			targetProxy = 96F1D0B5235DE3E0003D7B60 /* PBXContainerItemProxy */;
+		};
+		96F1D0B8235DE3E7003D7B60 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 968B40C8232BE08800350DB5 /* Managers */;
-			targetProxy = 968B40CE232BE08800350DB5 /* PBXContainerItemProxy */;
+			targetProxy = 96F1D0B7235DE3E7003D7B60 /* PBXContainerItemProxy */;
 		};
-		96E582C423323EC30041EF79 /* PBXTargetDependency */ = {
+		96F1D0BA235DE3E9003D7B60 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 96E582BD23323EC30041EF79 /* UIKitLib */;
-			targetProxy = 96E582C323323EC30041EF79 /* PBXContainerItemProxy */;
+			targetProxy = 96F1D0B9235DE3E9003D7B60 /* PBXContainerItemProxy */;
+		};
+		96F1D0BC235DE3F1003D7B60 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 964F6B10234E2182009FF180 /* TableAdapter */;
+			targetProxy = 96F1D0BB235DE3F1003D7B60 /* PBXContainerItemProxy */;
+		};
+		96F1D0BE235DE517003D7B60 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 96E582BD23323EC30041EF79 /* UIKitLib */;
+			targetProxy = 96F1D0BD235DE517003D7B60 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
