@@ -37,18 +37,11 @@ public class PetsView: MVVMView<PetsViewModel, PetsConfigurator, PetsViewModelEv
       
     }
     
-    private func handle(events: PetTableViewCellEvents) {
-        
-    }
-    
     //MARK: -
     //MARK: Overrided
     
     override func fill(with viewModel: PetsViewModel) {
-        self.adapter.sections = [Section(
-            cell: PetTableViewCell.self,
-            models: viewModel.petsValues,
-            eventHandler: { [weak self] in self?.handle(events: $0) }
-        )]
+        let section = Section(cell: PetTableViewCell.self, models: viewModel.petsValues)
+        self.adapter.sections = [section]
     }
 }

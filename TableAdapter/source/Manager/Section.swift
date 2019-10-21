@@ -27,7 +27,7 @@ public struct Section {
         models: [Model],
         isEditing: Bool = false,
         sectionsImages: SectionImages = SectionImages(),
-        eventHandler: @escaping F.Handler<EventsType>
+        eventHandler: F.Handler<EventsType>? = nil
     )
         where Cell: BaseCell<Model, EventsType>
     {
@@ -37,7 +37,7 @@ public struct Section {
         self.sectionsImages = sectionsImages
         self.eventHandler = {
             if let event = $0 as? EventsType {
-                eventHandler(event)
+                eventHandler?(event)
             }
         }
     }
