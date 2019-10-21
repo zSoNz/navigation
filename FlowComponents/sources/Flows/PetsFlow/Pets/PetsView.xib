@@ -20,7 +20,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="100" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Byo-OU-9fe">
-                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                    <rect key="frame" x="0.0" y="44" width="414" height="852"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                 </tableView>
             </subviews>
@@ -29,7 +29,7 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Byo-OU-9fe" secondAttribute="trailing" id="54a-su-DEk"/>
                 <constraint firstItem="Byo-OU-9fe" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="TYs-Ou-7sw"/>
                 <constraint firstItem="Byo-OU-9fe" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="cus-7t-0C5"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Byo-OU-9fe" secondAttribute="bottom" id="grd-HB-4Rd"/>
+                <constraint firstAttribute="bottom" secondItem="Byo-OU-9fe" secondAttribute="bottom" id="grd-HB-4Rd"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="132" y="121"/>

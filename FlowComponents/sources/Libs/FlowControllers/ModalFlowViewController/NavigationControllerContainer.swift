@@ -50,6 +50,7 @@ open class NavigationControllerContainer<Presenter: NavigationControllerPresente
         self.contentController = contentController
         super.init(nibName: nil, bundle: nil)
         contentController.delegate = self
+        contentController.interactivePopGestureRecognizer?.isEnabled = true
     }
     
     required public init?(coder aDecoder: NSCoder) {
@@ -122,7 +123,7 @@ open class NavigationControllerContainer<Presenter: NavigationControllerPresente
     
     private func addContainerController() {
         let containerController = self.contentController
-        containerController.setNavigationBarHidden(true, animated: false)
+//        containerController.setNavigationBarHidden(true, animated: false)
         self.idp.addChild(childController: containerController)
     }
 }

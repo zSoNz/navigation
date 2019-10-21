@@ -10,10 +10,6 @@ import UIKit
 
 import TableAdapter
 
-public enum PetsViewModelEvents: Events {
-    
-}
-
 public class PetsView: MVVMView<PetsViewModel, PetsConfigurator, PetsViewModelEvents> {
     
     @IBOutlet private var tableView: UITableView?
@@ -34,7 +30,11 @@ public class PetsView: MVVMView<PetsViewModel, PetsConfigurator, PetsViewModelEv
     //MARK: Private
     
     private func handle(events: TableViewEvents) {
-      
+        switch events {
+        case .didSelect(let index):
+            self.eventsEmiter.onNext(.didSelect(indexPath: index))
+        default: break
+        }
     }
     
     //MARK: -

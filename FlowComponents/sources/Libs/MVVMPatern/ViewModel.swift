@@ -21,13 +21,15 @@ open class ViewModel<ConfiguratorType: Configurator, EventsType: Events> {
     //MARK: -
     //MARK: Variables
     
-    public let handler = PublishSubject<EventsType>()
-    
-    public var events: Observable<ViewModelEvents> {
+    public var events: Observable<EventsType> {
         return self.eventsEmiter.asObservable()
     }
+    public let eventsEmiter = PublishSubject<EventsType>()
     
-    internal let eventsEmiter = PublishSubject<ViewModelEvents>()
+    internal var internalEvents: Observable<ViewModelEvents> {
+        return self.internalEventsEmiter.asObservable()
+    }
+    internal let internalEventsEmiter = PublishSubject<ViewModelEvents>()
     internal let configurator: ConfiguratorType
     
     private let disposeBag = DisposeBag()
@@ -45,7 +47,8 @@ open class ViewModel<ConfiguratorType: Configurator, EventsType: Events> {
     //MARK: Private
     
     private func prepareHandling() {
-        self.handler
+        self.events
+            .observeOn(MainScheduler.asyncInstance)
             .bind(onNext: self.handle)
             .disposed(by: self.disposeBag)
     }

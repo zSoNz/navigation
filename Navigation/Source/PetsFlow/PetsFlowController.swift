@@ -8,6 +8,8 @@
 
 import Foundation
 
+import RxSwift
+
 import FlowComponents
 import Models
 
@@ -18,6 +20,11 @@ enum PetsFlowControllerEvents: FlowEventAction {
 }
 
 class PetsFlowController: NavigationControllerContainer<NavigationControllerDefaultPresenter, PetsFlowControllerEvents> {
+    
+    //MARK: -
+    //MARK: Variables
+    
+    private let disposeBag = DisposeBag()
     
     //MARK: -
     //MARK: View Lifecylcle
@@ -31,11 +38,9 @@ class PetsFlowController: NavigationControllerContainer<NavigationControllerDefa
     //MARK: -
     //MARK: Private
     
-    private func showPet() {
-        let provider = LocalPetsFetcherProvider()
-        let manager = RandomPetFetcherManager(provider: provider)
-        let configurator = PetConfigurator()
-        let viewModel = PetViewModel(manager: manager, configurator: configurator)
+    private func show(pet: Pet) {
+        let configurator = PetConfigurator(pet: pet)
+        let viewModel = PetViewModel(configurator: configurator)
         let view = PetView(viewModel: viewModel)
         
         self.pushViewController(view, animated: true)
@@ -48,6 +53,20 @@ class PetsFlowController: NavigationControllerContainer<NavigationControllerDefa
         let viewModel = PetsViewModel(with: configurator, manager: manager)
         let view = PetsView(viewModel: viewModel)
         
+        viewModel
+            .eventsEmiter
+            .subscribe(onNext: self.handle)
+            .disposed(by: self.disposeBag)
+        
         self.pushViewController(view, animated: true)
+    }
+    
+    private func handle(events: PetsViewModelEvents) {
+        switch events {
+        case .didSelectPet(let pet):
+            self.show(pet: pet)
+        default:
+            break
+        }
     }
 }

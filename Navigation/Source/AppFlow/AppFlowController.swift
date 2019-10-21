@@ -23,6 +23,8 @@ class AppFlowController: NavigationFlowViewController<NavigationControllerModalP
         super.viewDidLoad()
         
         self.showPetsFlow()
+        
+        self.setNavigationBarHidden(true, animated: false)
     }
     
     //MARK: -

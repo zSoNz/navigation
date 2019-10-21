@@ -12,6 +12,12 @@ import Managers
 
 import Models
 
+public enum PetsViewModelEvents: Events {
+    
+    case didSelect(indexPath: IndexPath)
+    case didSelectPet(Pet)
+}
+
 public class PetsViewModel: ViewModel<PetsConfigurator, PetsViewModelEvents> {
     
     //MARK: -
@@ -45,7 +51,19 @@ public class PetsViewModel: ViewModel<PetsConfigurator, PetsViewModelEvents> {
         self.manager.pets(completion: { [weak self] in
             self?.pets = Pets(values: $0)
             
-            self?.eventsEmiter.onNext(.didUpdated)
+            self?.internalEventsEmiter.onNext(.didUpdated)
         })
+    }
+    
+    //MARK: -
+    //MARK: Override
+    
+    override func handle(events: PetsViewModelEvents) {
+        switch events {
+        case .didSelect(indexPath: let index):
+            self.eventsEmiter.onNext(.didSelectPet(self.pets.values[index.row]))
+        default:
+            break
+        }
     }
 }

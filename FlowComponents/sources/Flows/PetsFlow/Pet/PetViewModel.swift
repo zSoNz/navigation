@@ -17,8 +17,6 @@ public class PetViewModel: ViewModel<PetConfigurator, PetViewModelEvents> {
     //MARK: -
     //MARK: Accesors
     
-    private let manager: RandomPetFetcherManager
-    
     private(set) var pet: Pet
     
     var petName: String {
@@ -38,32 +36,10 @@ public class PetViewModel: ViewModel<PetConfigurator, PetViewModelEvents> {
     //MARK: -
     //MARK: Initializations
     
-    public init(manager: RandomPetFetcherManager, configurator: PetConfigurator) {
-        self.manager = manager
+    public init(configurator: PetConfigurator) {
         self.pet = configurator.pet
         
         super.init(with: configurator)
-    }
-    
-    //MARK: -
-    //MARK: Private
-    
-    private func randomizePet() {
-        self.manager.pet { [weak self] in
-            self?.pet = $0
-            
-            self?.eventsEmiter.onNext(.didUpdated)
-        }
-    }
-    
-    //MARK: -
-    //MARK: Overrided
-    
-    override func handle(events: PetViewModelEvents) {
-        switch events {
-        case .fetchRandomPet:
-            self.randomizePet()
-        }
     }
 }
 

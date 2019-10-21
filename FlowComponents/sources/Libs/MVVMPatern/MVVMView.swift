@@ -56,13 +56,13 @@ open class MVVMView<ViewModelType, ConfiguratorType, ViewModelEventsType>: UIVie
     
     private func prepareViewModelHandling() {
         self.viewModel
-            .eventsEmiter
+            .internalEventsEmiter
             .compactMap { [weak self] _ in self?.viewModel }
             .subscribe(onNext: self.fill)
             .disposed(by: self.disposeBag)
         
         self.eventsEmiter
-            .bind(to: self.viewModel.handler)
+            .bind(to: self.viewModel.eventsEmiter)
             .disposed(by: self.disposeBag)
     }
     
