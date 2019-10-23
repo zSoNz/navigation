@@ -25,6 +25,23 @@ class PetsFlowController: NavigationControllerContainer<NavigationControllerDefa
     //MARK: Variables
     
     private let disposeBag = DisposeBag()
+    private let manager: PetsFetcherManagerType
+    
+    private var pets: PetsView?
+    private var pet: PetView?
+
+    //MARK: -
+    //MARK: Initializations
+    
+    required init(manager: PetsFetcherManagerType, presenter: NavigationControllerDefaultPresenter = .default) {
+        self.manager = manager
+        
+        super.init(presenter: presenter)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     //MARK: -
     //MARK: View Lifecylcle
@@ -47,26 +64,32 @@ class PetsFlowController: NavigationControllerContainer<NavigationControllerDefa
     }
     
     private func showPets() {
-        let provider = LocalPetsFetcherProvider()
-        let manager = PetsFetcherManager(provider: provider)
         let configurator = PetsConfigurator(pets: .init())
-        let viewModel = PetsViewModel(with: configurator, manager: manager)
+        let viewModel = PetsViewModel(with: configurator)
         let view = PetsView(viewModel: viewModel)
         
         viewModel
-            .eventsEmiter
+            .events
             .subscribe(onNext: self.handle)
             .disposed(by: self.disposeBag)
         
         self.pushViewController(view, animated: true)
     }
     
-    private func handle(events: PetsViewModelEvents) {
+    private func handle(events: PetsViewModelOutputEvents) {
         switch events {
         case .didSelectPet(let pet):
             self.show(pet: pet)
+        case .needDowloadPets:
+            self.fetchPets()
         default:
             break
+        }
+    }
+    
+    private func fetchPets() {
+        self.manager.pets { _ in
+            
         }
     }
 }

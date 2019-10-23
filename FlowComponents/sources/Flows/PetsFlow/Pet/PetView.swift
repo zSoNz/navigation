@@ -11,12 +11,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-public enum PetViewModelEvents: Events {
-    
-    case fetchRandomPet
-}
-
-public class PetView: MVVMView<PetViewModel, PetConfigurator, PetViewModelEvents> {
+public class PetView: MVVMView<PetViewModel, PetConfigurator, PetViewModelOutputEvents, PetViewModelInputEvents> {
     
     //MARK: -
     //MARK: Outlets

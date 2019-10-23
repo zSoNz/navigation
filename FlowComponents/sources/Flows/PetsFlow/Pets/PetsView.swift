@@ -10,7 +10,7 @@ import UIKit
 
 import TableAdapter
 
-public class PetsView: MVVMView<PetsViewModel, PetsConfigurator, PetsViewModelEvents> {
+public class PetsView: MVVMView<PetsViewModel, PetsConfigurator, PetsViewModelOutputEvents, PetsViewModelInputEvents> {
     
     @IBOutlet private var tableView: UITableView?
     

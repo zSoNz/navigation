@@ -11,25 +11,18 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-public enum ViewModelEvents {
-    
-    case didUpdated
-}
-
-open class ViewModel<ConfiguratorType: Configurator, EventsType: Events> {
+open class ViewModel<ConfiguratorType: Configurator, OutputEventsType: Events, InputEventsType: Events> {
 
     //MARK: -
     //MARK: Variables
     
-    public var events: Observable<EventsType> {
-        return self.eventsEmiter.asObservable()
-    }
-    public let eventsEmiter = PublishSubject<EventsType>()
-    
-    internal var internalEvents: Observable<ViewModelEvents> {
+    public var events: Observable<OutputEventsType> {
         return self.internalEventsEmiter.asObservable()
     }
-    internal let internalEventsEmiter = PublishSubject<ViewModelEvents>()
+    
+    public let eventEmiter = PublishSubject<InputEventsType>()
+    
+    internal let internalEventsEmiter = PublishSubject<OutputEventsType>()
     internal let configurator: ConfiguratorType
     
     private let disposeBag = DisposeBag()
@@ -56,7 +49,7 @@ open class ViewModel<ConfiguratorType: Configurator, EventsType: Events> {
     //MARK: -
     //MARK: Overriding
     
-    func handle(events: EventsType) {
+    func handle(events: OutputEventsType) {
         
     }
 }
