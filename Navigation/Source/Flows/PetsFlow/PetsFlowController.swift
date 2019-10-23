@@ -27,9 +27,6 @@ class PetsFlowController: NavigationControllerContainer<NavigationControllerDefa
     private let disposeBag = DisposeBag()
     private let manager: PetsFetcherManagerType
     
-    private var pets: PetsView?
-    private var pet: PetView?
-
     //MARK: -
     //MARK: Initializations
     
@@ -70,26 +67,25 @@ class PetsFlowController: NavigationControllerContainer<NavigationControllerDefa
         
         viewModel
             .events
+            .weakZip(value: viewModel)
             .subscribe(onNext: self.handle)
             .disposed(by: self.disposeBag)
         
         self.pushViewController(view, animated: true)
     }
     
-    private func handle(events: PetsViewModelOutputEvents) {
-        switch events {
+    private func handle(event: PetsViewModelOutputEvents, viewModel: PetsViewModel?) {
+        switch event {
         case .didSelectPet(let pet):
             self.show(pet: pet)
         case .needDowloadPets:
-            self.fetchPets()
+            self.processPets(viewModel: viewModel)
         default:
             break
         }
     }
     
-    private func fetchPets() {
-        self.manager.pets { _ in
-            
-        }
+    private func processPets(viewModel: PetsViewModel?) {
+        
     }
 }

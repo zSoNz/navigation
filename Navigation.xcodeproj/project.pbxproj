@@ -76,6 +76,7 @@
 		96E58325233254CC0041EF79 /* PetsFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E58324233254CC0041EF79 /* PetsFlowController.swift */; };
 		96E583272332564E0041EF79 /* PetsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FACF922330F3D10003F86E /* PetsViewModel.swift */; };
 		96E58328233257C90041EF79 /* PetsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96FACF8F2330F3BC0003F86E /* PetsView.xib */; };
+		96EE463123608317004623BC /* RX+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96EE463023608317004623BC /* RX+Extensions.swift */; };
 		96FACF912330F3BC0003F86E /* PetsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96FACF8F2330F3BC0003F86E /* PetsView.xib */; };
 		96FACF942330F4160003F86E /* PetsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FACF8E2330F3BC0003F86E /* PetsView.swift */; };
 		96FACFA72330FF7A0003F86E /* FlowViewControllerOutEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FACF9A2330FF7A0003F86E /* FlowViewControllerOutEvent.swift */; };
@@ -240,6 +241,7 @@
 		96E5830223323EE30041EF79 /* UITableView+Register.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+Register.swift"; sourceTree = "<group>"; };
 		96E583202332539A0041EF79 /* AppFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFlowController.swift; sourceTree = "<group>"; };
 		96E58324233254CC0041EF79 /* PetsFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetsFlowController.swift; sourceTree = "<group>"; };
+		96EE463023608317004623BC /* RX+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RX+Extensions.swift"; sourceTree = "<group>"; };
 		96FACF8E2330F3BC0003F86E /* PetsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetsView.swift; sourceTree = "<group>"; };
 		96FACF8F2330F3BC0003F86E /* PetsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PetsView.xib; sourceTree = "<group>"; };
 		96FACF922330F3D10003F86E /* PetsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetsViewModel.swift; sourceTree = "<group>"; };
@@ -606,8 +608,8 @@
 		96B4BB1023211FB3009661C8 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				96E5831F2332538B0041EF79 /* AppFlow */,
-				96E5831E233252BC0041EF79 /* PetsFlow */,
+				96EE462E236082F8004623BC /* Extensions */,
+				96EE462D236082F0004623BC /* Flows */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -750,6 +752,31 @@
 				96E583202332539A0041EF79 /* AppFlowController.swift */,
 			);
 			path = AppFlow;
+			sourceTree = "<group>";
+		};
+		96EE462D236082F0004623BC /* Flows */ = {
+			isa = PBXGroup;
+			children = (
+				96E5831F2332538B0041EF79 /* AppFlow */,
+				96E5831E233252BC0041EF79 /* PetsFlow */,
+			);
+			path = Flows;
+			sourceTree = "<group>";
+		};
+		96EE462E236082F8004623BC /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				96EE462F23608306004623BC /* RX */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		96EE462F23608306004623BC /* RX */ = {
+			isa = PBXGroup;
+			children = (
+				96EE463023608317004623BC /* RX+Extensions.swift */,
+			);
+			path = RX;
 			sourceTree = "<group>";
 		};
 		96FACF8C2330F38B0003F86E /* PetsFlow */ = {
@@ -1290,6 +1317,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96EE463123608317004623BC /* RX+Extensions.swift in Sources */,
 				96E583212332539A0041EF79 /* AppFlowController.swift in Sources */,
 				964F6B3E234E31F2009FF180 /* PetTableViewCell.swift in Sources */,
 				96B4BAFE23211F03009661C8 /* AppDelegate.swift in Sources */,
