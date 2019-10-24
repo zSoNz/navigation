@@ -14,7 +14,7 @@ import Models
 
 public enum PetsViewModelOutputEvents: Events {
     
-    case didSelect(indexPath: IndexPath)
+    case didSelecting(indexPath: IndexPath)
     case didSelectPet(Pet)
     case needDowloadPets
 }
