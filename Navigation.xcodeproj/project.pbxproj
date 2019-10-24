@@ -355,9 +355,9 @@
 		964F6AF0234DD843009FF180 /* Libs */ = {
 			isa = PBXGroup;
 			children = (
+				96F1152E236090AC00E306F9 /* Paterns */,
 				967363AC234398DF008695FB /* Sourcery */,
 				96FACF992330FF7A0003F86E /* FlowControllers */,
-				96B4BB28232130B0009661C8 /* MVVMPatern */,
 			);
 			path = Libs;
 			sourceTree = "<group>";
@@ -777,6 +777,14 @@
 				96EE463023608317004623BC /* RX+Extensions.swift */,
 			);
 			path = RX;
+			sourceTree = "<group>";
+		};
+		96F1152E236090AC00E306F9 /* Paterns */ = {
+			isa = PBXGroup;
+			children = (
+				96B4BB28232130B0009661C8 /* MVVMPatern */,
+			);
+			path = Paterns;
 			sourceTree = "<group>";
 		};
 		96FACF8C2330F38B0003F86E /* PetsFlow */ = {

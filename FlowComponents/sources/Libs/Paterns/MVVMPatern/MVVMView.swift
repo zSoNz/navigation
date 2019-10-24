@@ -64,6 +64,10 @@ open class MVVMView<ViewModelType, ConfiguratorType, ViewModelOutputEventsType, 
         self.eventsEmiter
             .bind(to: self.viewModel.internalEventsEmiter)
             .disposed(by: self.disposeBag)
+        
+        self.viewModel.didUpdate = { [weak self, weak viewModel] in
+            viewModel.map { self?.fill(with: $0) }
+        }
     }
     
     //MARK: -

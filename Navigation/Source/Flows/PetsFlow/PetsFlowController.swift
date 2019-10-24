@@ -86,6 +86,8 @@ class PetsFlowController: NavigationControllerContainer<NavigationControllerDefa
     }
     
     private func processPets(viewModel: PetsViewModel?) {
-        
+        self.manager.pets { [weak viewModel] in
+            viewModel?.eventEmiter.onNext(.updatePets($0))
+        }
     }
 }

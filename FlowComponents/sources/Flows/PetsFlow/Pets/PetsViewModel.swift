@@ -21,6 +21,7 @@ public enum PetsViewModelOutputEvents: Events {
 
 public enum PetsViewModelInputEvents: Events {
 
+    case updatePets([Pet])
 }
 
 public class PetsViewModel: ViewModel<PetsConfigurator, PetsViewModelOutputEvents, PetsViewModelInputEvents> {
@@ -54,6 +55,14 @@ public class PetsViewModel: ViewModel<PetsConfigurator, PetsViewModelOutputEvent
             self.internalEventsEmiter.onNext(.didSelectPet(self.pets.values[index.row]))
         default:
             break
+        }
+    }
+    
+    override func handle(events: PetsViewModelInputEvents) {
+        switch events {
+        case .updatePets(let models):
+            self.pets = Pets(values: models)
+            self.didUpdate()
         }
     }
 }

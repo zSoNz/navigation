@@ -27,6 +27,15 @@ public class PetsView: MVVMView<PetsViewModel, PetsConfigurator, PetsViewModelOu
     }()
     
     //MARK: -
+    //MARK: Life Cycle
+    
+    public override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        self.eventsEmiter.onNext(.needDowloadPets)
+    }
+    
+    //MARK: -
     //MARK: Private
     
     private func handle(events: TableViewEvents) {

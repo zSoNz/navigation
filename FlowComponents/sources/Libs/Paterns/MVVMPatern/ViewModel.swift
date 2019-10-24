@@ -24,6 +24,7 @@ open class ViewModel<ConfiguratorType: Configurator, OutputEventsType: Events, I
     
     internal let internalEventsEmiter = PublishSubject<OutputEventsType>()
     internal let configurator: ConfiguratorType
+    internal var didUpdate: () -> () = {}
     
     private let disposeBag = DisposeBag()
     
@@ -44,12 +45,21 @@ open class ViewModel<ConfiguratorType: Configurator, OutputEventsType: Events, I
             .observeOn(MainScheduler.asyncInstance)
             .bind(onNext: self.handle)
             .disposed(by: self.disposeBag)
+        
+        self.eventEmiter
+            .observeOn(MainScheduler.asyncInstance)
+            .bind(onNext: self.handle)
+            .disposed(by: self.disposeBag)
     }
     
     //MARK: -
     //MARK: Overriding
     
     func handle(events: OutputEventsType) {
+        
+    }
+    
+    func handle(events: InputEventsType) {
         
     }
 }
