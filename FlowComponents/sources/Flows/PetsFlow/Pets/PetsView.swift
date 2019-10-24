@@ -41,7 +41,7 @@ public class PetsView: MVVMView<PetsViewModel, PetsConfigurator, PetsViewModelOu
     private func handle(events: TableViewEvents) {
         switch events {
         case .didSelect(let index):
-            self.eventsEmiter.onNext(.didSelect(indexPath: index))
+            self.eventsEmiter.onNext(.didSelecting(indexPath: index))
         default: break
         }
     }

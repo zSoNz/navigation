@@ -51,7 +51,7 @@ public class PetsViewModel: ViewModel<PetsConfigurator, PetsViewModelOutputEvent
     
     override func handle(events: PetsViewModelOutputEvents) {
         switch events {
-        case .didSelect(indexPath: let index):
+        case .didSelecting(indexPath: let index):
             self.internalEventsEmiter.onNext(.didSelectPet(self.pets.values[index.row]))
         default:
             break
