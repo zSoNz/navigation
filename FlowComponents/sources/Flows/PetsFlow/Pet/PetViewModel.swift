@@ -12,7 +12,17 @@ import Managers
 
 import Models
 
-public class PetViewModel: ViewModel<PetConfigurator, PetViewModelEvents> {
+public enum PetViewModelOutputEvents: Events {
+    
+    case fetchRandomPet
+}
+
+public enum PetViewModelInputEvents: Events {
+    
+    case fetchRandomPet
+}
+
+public class PetViewModel: ViewModel<PetConfigurator, PetViewModelOutputEvents, PetViewModelInputEvents> {
     
     //MARK: -
     //MARK: Accesors

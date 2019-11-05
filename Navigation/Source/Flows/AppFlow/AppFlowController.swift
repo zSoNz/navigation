@@ -10,6 +10,8 @@ import Foundation
 
 import FlowComponents
 
+import Managers
+
 enum AppFlowControllerEvents: FlowEventAction {
     
 }
@@ -31,7 +33,9 @@ class AppFlowController: NavigationFlowViewController<NavigationControllerModalP
     //MARK: Private
     
     private func showPetsFlow() {
-        let flow = PetsFlowController(presenter: .default)
+        let provider = LocalPetsFetcherProvider()
+        let manager = PetsFetcherManager(provider: provider)
+        let flow = PetsFlowController(manager: manager)
         
         self.setViewControllers([flow], animated: true)
     }

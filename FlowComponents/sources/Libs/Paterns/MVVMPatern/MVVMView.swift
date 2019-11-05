@@ -10,18 +10,18 @@ import UIKit
 
 import RxSwift
 
-open class MVVMView<ViewModelType, ConfiguratorType, ViewModelEventsType>: UIViewController
-    where ViewModelType: ViewModel<ConfiguratorType, ViewModelEventsType>, ViewModelEventsType: Events, ConfiguratorType: Configurator
+open class MVVMView<ViewModelType, ConfiguratorType, ViewModelOutputEventsType, ViewModelInputEventsType>: UIViewController
+    where ViewModelType: ViewModel<ConfiguratorType, ViewModelOutputEventsType, ViewModelInputEventsType>, ViewModelOutputEventsType: Events, ConfiguratorType: Configurator, ViewModelInputEventsType: Events
 {
 
     //MARK: -
     //MARK: Accesors
     
-    public var events: Observable<ViewModelEventsType> {
+    public var events: Observable<ViewModelOutputEventsType> {
         return self.eventsEmiter.asObserver()
     }
     
-    let eventsEmiter = PublishSubject<ViewModelEventsType>()
+    let eventsEmiter = PublishSubject<ViewModelOutputEventsType>()
     
     private let viewModel: ViewModelType
     private let disposeBag = DisposeBag()
@@ -62,8 +62,12 @@ open class MVVMView<ViewModelType, ConfiguratorType, ViewModelEventsType>: UIVie
             .disposed(by: self.disposeBag)
         
         self.eventsEmiter
-            .bind(to: self.viewModel.eventsEmiter)
+            .bind(to: self.viewModel.internalEventsEmiter)
             .disposed(by: self.disposeBag)
+        
+        self.viewModel.didUpdate = { [weak self, weak viewModel] in
+            viewModel.map { self?.fill(with: $0) }
+        }
     }
     
     //MARK: -

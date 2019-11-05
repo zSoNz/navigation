@@ -12,13 +12,19 @@ import Managers
 
 import Models
 
-public enum PetsViewModelEvents: Events {
+public enum PetsViewModelOutputEvents: Events {
     
-    case didSelect(indexPath: IndexPath)
+    case didSelecting(indexPath: IndexPath)
     case didSelectPet(Pet)
+    case needDowloadPets
 }
 
-public class PetsViewModel: ViewModel<PetsConfigurator, PetsViewModelEvents> {
+public enum PetsViewModelInputEvents: Events {
+
+    case updatePets([Pet])
+}
+
+public class PetsViewModel: ViewModel<PetsConfigurator, PetsViewModelOutputEvents, PetsViewModelInputEvents> {
     
     //MARK: -
     //MARK: Variables
@@ -27,43 +33,36 @@ public class PetsViewModel: ViewModel<PetsConfigurator, PetsViewModelEvents> {
         return self.pets.values
     }
     
-    public let manager: PetsFetcherManagerType
-    
     private(set) public var pets: Pets
     
     //MARK: -
     //MARK: Initializations
     
-    public required init(with configurator: PetsConfigurator, manager: PetsFetcherManagerType) {
+    public required override init(with configurator: PetsConfigurator) {
         self.pets = configurator.pets
-        
-        self.manager = manager
         
         super.init(with: configurator)
         
-        self.prepareData()
-    }
-    
-    //MARK: -
-    //MARK: Private
-    
-    private func prepareData() {
-        self.manager.pets(completion: { [weak self] in
-            self?.pets = Pets(values: $0)
-            
-            self?.internalEventsEmiter.onNext(.didUpdated)
-        })
+        self.internalEventsEmiter.onNext(.needDowloadPets)
     }
     
     //MARK: -
     //MARK: Override
     
-    override func handle(events: PetsViewModelEvents) {
+    override func handle(events: PetsViewModelOutputEvents) {
         switch events {
-        case .didSelect(indexPath: let index):
-            self.eventsEmiter.onNext(.didSelectPet(self.pets.values[index.row]))
+        case .didSelecting(indexPath: let index):
+            self.internalEventsEmiter.onNext(.didSelectPet(self.pets.values[index.row]))
         default:
             break
+        }
+    }
+    
+    override func handle(events: PetsViewModelInputEvents) {
+        switch events {
+        case .updatePets(let models):
+            self.pets = Pets(values: models)
+            self.didUpdate()
         }
     }
 }

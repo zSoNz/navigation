@@ -10,7 +10,7 @@ import UIKit
 
 import TableAdapter
 
-public class PetsView: MVVMView<PetsViewModel, PetsConfigurator, PetsViewModelEvents> {
+public class PetsView: MVVMView<PetsViewModel, PetsConfigurator, PetsViewModelOutputEvents, PetsViewModelInputEvents> {
     
     @IBOutlet private var tableView: UITableView?
     
@@ -27,12 +27,21 @@ public class PetsView: MVVMView<PetsViewModel, PetsConfigurator, PetsViewModelEv
     }()
     
     //MARK: -
+    //MARK: Life Cycle
+    
+    public override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        self.eventsEmiter.onNext(.needDowloadPets)
+    }
+    
+    //MARK: -
     //MARK: Private
     
     private func handle(events: TableViewEvents) {
         switch events {
         case .didSelect(let index):
-            self.eventsEmiter.onNext(.didSelect(indexPath: index))
+            self.eventsEmiter.onNext(.didSelecting(indexPath: index))
         default: break
         }
     }
