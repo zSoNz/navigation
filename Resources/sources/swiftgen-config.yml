@@ -1,0 +1,8 @@
+output_dir: Generated
+strings:
+    inputs: en.lproj/Localizable.strings
+    outputs:
+        templateName: structured-swift4
+        output: L10n-Constants.swift
+        params:
+            publicAccess: true
