@@ -11,7 +11,9 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-public class PetView: MVVMView<PetViewModel, PetConfigurator, PetViewModelOutputEvents, PetViewModelInputEvents> {
+public class PetView: MVVMView<PetViewModel, PetConfigurator> {
+    
+    private let disposeBag = DisposeBag()
     
     //MARK: -
     //MARK: Outlets
@@ -21,21 +23,21 @@ public class PetView: MVVMView<PetViewModel, PetConfigurator, PetViewModelOutput
     @IBOutlet private var age: UILabel?
     @IBOutlet private var type: UILabel?
     @IBOutlet private var randomize: UIButton?
-    
+
     //MARK: -
     //MARK: Overrided
     
-    override func fill(with viewModel: PetViewModel) {
-        self.imageView?.image = viewModel.petImage
-
-        self.name?.text = viewModel.petName
-        self.age?.text = viewModel.petAge
-        self.type?.text = viewModel.petType
+    public override func configViewModel() {
+        self.disposeBag.insert(
+            self.bindText(self.viewModel.petName, to: self.name),
+            self.bindText(self.viewModel.petAge, to: self.age),
+            self.bindText(self.viewModel.petType, to: self.type),
+            self.imageView.map { self.viewModel.petImage.bind(to: $0.rx.image) },
+            self.randomize?.rx.tap.bind { [weak self] in self?.viewModel.fetchRandomPet() }
+        )
     }
     
-    override func prepareBindings(disposeBag: DisposeBag) {
-        self.randomize?.rx.tap
-            .bind { [weak self] in self?.eventsEmiter.onNext(.fetchRandomPet) }
-            .disposed(by: disposeBag)
+    private func bindText(_ item: Observable<String>, to: UILabel?) -> Disposable? {
+        to.map { item.bind(to: $0.rx.text) }
     }
 }

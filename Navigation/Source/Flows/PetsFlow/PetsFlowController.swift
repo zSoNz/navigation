@@ -57,6 +57,10 @@ class PetsFlowController: NavigationControllerContainer<NavigationControllerDefa
         let viewModel = PetViewModel(configurator: configurator)
         let view = PetView(viewModel: viewModel)
         
+        self.disposeBag.insert(
+            viewModel.fetchRandomPetEvent.bind { [weak self] in  }
+        )
+        
         self.pushViewController(view, animated: true)
     }
     
@@ -65,29 +69,17 @@ class PetsFlowController: NavigationControllerContainer<NavigationControllerDefa
         let viewModel = PetsViewModel(with: configurator)
         let view = PetsView(viewModel: viewModel)
         
-        viewModel
-            .events
-            .weakZip(value: viewModel)
-            .subscribe(onNext: self.handle)
-            .disposed(by: self.disposeBag)
-        
+        self.disposeBag.insert(
+            viewModel.selectedPet.bind { [weak self] in self?.show(pet: $0) }
+        )
+
+        self.processPets(viewModel: viewModel)
         self.pushViewController(view, animated: true)
-    }
-    
-    private func handle(event: PetsViewModelOutputEvents, viewModel: PetsViewModel?) {
-        switch event {
-        case .didSelectPet(let pet):
-            self.show(pet: pet)
-        case .needDowloadPets:
-            self.processPets(viewModel: viewModel)
-        default:
-            break
-        }
     }
     
     private func processPets(viewModel: PetsViewModel?) {
         self.manager.pets { [weak viewModel] in
-            viewModel?.eventEmiter.onNext(.updatePets($0))
+            viewModel?.update(pets: Pets(values: $0))
         }
     }
 }

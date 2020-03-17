@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3FF002602420E35200BBAAC5 /* DisposeBag+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF0025F2420E35200BBAAC5 /* DisposeBag+Extensions.swift */; };
 		964F6AD2234DBCF6009FF180 /* PetsConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964F6ACA234DB940009FF180 /* PetsConfigurator.swift */; };
 		964F6AD3234DBCFA009FF180 /* PetConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964F6ACB234DB940009FF180 /* PetConfigurator.swift */; };
 		964F6AD4234DBD01009FF180 /* Configurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964F6AC8234DB940009FF180 /* Configurator.swift */; };
@@ -170,6 +171,7 @@
 		303F455A192EBCDF1CFD4C29 /* Pods-UI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UI.debug.xcconfig"; path = "Target Support Files/Pods-UI/Pods-UI.debug.xcconfig"; sourceTree = "<group>"; };
 		338607E6336B7BC2CA9DC6BD /* Pods-ViewModels.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ViewModels.release.xcconfig"; path = "Target Support Files/Pods-ViewModels/Pods-ViewModels.release.xcconfig"; sourceTree = "<group>"; };
 		3DC8AFA1DA1431196265DA9C /* Pods-Navigation.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Navigation.debug.xcconfig"; path = "Target Support Files/Pods-Navigation/Pods-Navigation.debug.xcconfig"; sourceTree = "<group>"; };
+		3FF0025F2420E35200BBAAC5 /* DisposeBag+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DisposeBag+Extensions.swift"; sourceTree = "<group>"; };
 		596A7F2CD6A003D1C6C8C9CA /* Pods_Navigation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Navigation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A9D690BA3BB3F51424A4CA1 /* Pods_UI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		829E38131DD1437818EDEA75 /* Pods-FlowComponents.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlowComponents.release.xcconfig"; path = "Target Support Files/Pods-FlowComponents/Pods-FlowComponents.release.xcconfig"; sourceTree = "<group>"; };
@@ -312,6 +314,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3FF0025E2420E32E00BBAAC5 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				3FF0025F2420E35200BBAAC5 /* DisposeBag+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		5A5CED5E916868092FEE13A6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -355,6 +365,7 @@
 		964F6AF0234DD843009FF180 /* Libs */ = {
 			isa = PBXGroup;
 			children = (
+				3FF0025E2420E32E00BBAAC5 /* Extensions */,
 				96F1152E236090AC00E306F9 /* Paterns */,
 				967363AC234398DF008695FB /* Sourcery */,
 				96FACF992330FF7A0003F86E /* FlowControllers */,
@@ -986,8 +997,8 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 968B40B9232BDFAF00350DB5 /* Build configuration list for PBXNativeTarget "FlowComponents" */;
 			buildPhases = (
-				967363A923439837008695FB /* Sourcery */,
 				D1C01D0A36215296A7320D65 /* [CP] Check Pods Manifest.lock */,
+				967363A923439837008695FB /* Sourcery */,
 				968B40AB232BDFAF00350DB5 /* Headers */,
 				968B40AC232BDFAF00350DB5 /* Sources */,
 				968B40AE232BDFAF00350DB5 /* Resources */,
@@ -1028,8 +1039,8 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 96B4BB0C23211F04009661C8 /* Build configuration list for PBXNativeTarget "Navigation" */;
 			buildPhases = (
-				966031F1232A8E5100C25B3B /* Embed Frameworks */,
 				FC2528D7DBB880200F6AD4BD /* [CP] Check Pods Manifest.lock */,
+				966031F1232A8E5100C25B3B /* Embed Frameworks */,
 				96B4BAF623211F03009661C8 /* Sources */,
 				96B4BAF723211F03009661C8 /* Frameworks */,
 				96B4BAF823211F03009661C8 /* Resources */,
@@ -1287,6 +1298,7 @@
 			files = (
 				969ECC0F2344EBA10034478E /* AutoEquatable.generated.swift in Sources */,
 				96FACFAC2330FF7A0003F86E /* NavigationFlowViewController.swift in Sources */,
+				3FF002602420E35200BBAAC5 /* DisposeBag+Extensions.swift in Sources */,
 				96FACFA72330FF7A0003F86E /* FlowViewControllerOutEvent.swift in Sources */,
 				964F6AD3234DBCFA009FF180 /* PetConfigurator.swift in Sources */,
 				968B40C1232BDFE300350DB5 /* ViewModel.swift in Sources */,
