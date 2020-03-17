@@ -63,24 +63,4 @@ public class PetsViewModel: ViewModel<PetsConfigurator> {
     public func update(pets: Pets) {
         self.petsEmitter.accept(pets)
     }
-    
-    //MARK: -
-    //MARK: Override
-    
-//    override func handle(events: PetsViewModelOutputEvents) {
-//        switch events {
-//        case .didSelecting(indexPath: let index):
-//            self.internalEventsEmiter.onNext(.didSelectPet(self.pets.values[index.row]))
-//        default:
-//            break
-//        }
-//    }
-//
-//    override func handle(events: PetsViewModelInputEvents) {
-//        switch events {
-//        case .updatePets(let models):
-//            self.pets = Pets(values: models)
-//            self.didUpdate()
-//        }
-//    }
 }

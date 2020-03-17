@@ -23,7 +23,7 @@ public class PetViewModel: ViewModel<PetConfigurator> {
     
     private let pet: BehaviorRelay<Pet>
     
-    public let fetchRandomPetEvent = PublishRelay<Void>()
+    public let fetchRandomPet = PublishRelay<Void>()
     
     var petImage: Observable<UIImage?> {
         self.pet.map { $0.image }
@@ -35,7 +35,7 @@ public class PetViewModel: ViewModel<PetConfigurator> {
     
     var petAge: Observable<String>{
         self.pet.map {
-            return $0.isEmpty
+            $0.isEmpty
                 ? "-"
                 : "ᕦ(ò_óˇ)ᕤ " + $0.age.description + " ᕦ(ò_óˇ)ᕤ"
         }
@@ -43,14 +43,10 @@ public class PetViewModel: ViewModel<PetConfigurator> {
     
     var petType: Observable<String> {
         self.pet.map {
-            return $0.isEmpty
+            $0.isEmpty
                 ? "-"
                 : $0.type.rawValue.uppercased() + "\n(●´ω `●)"
         }
-    }
-    
-    public func fetchRandomPet() {
-        self.fetchRandomPetEvent.accept(())
     }
     
     //MARK: -

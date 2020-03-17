@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3FF002602420E35200BBAAC5 /* DisposeBag+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF0025F2420E35200BBAAC5 /* DisposeBag+Extensions.swift */; };
+		3FF002612420E8BB00BBAAC5 /* DisposeBag+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF0025F2420E35200BBAAC5 /* DisposeBag+Extensions.swift */; };
 		964F6AD2234DBCF6009FF180 /* PetsConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964F6ACA234DB940009FF180 /* PetsConfigurator.swift */; };
 		964F6AD3234DBCFA009FF180 /* PetConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964F6ACB234DB940009FF180 /* PetConfigurator.swift */; };
 		964F6AD4234DBD01009FF180 /* Configurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964F6AC8234DB940009FF180 /* Configurator.swift */; };
@@ -314,14 +314,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		3FF0025E2420E32E00BBAAC5 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				3FF0025F2420E35200BBAAC5 /* DisposeBag+Extensions.swift */,
-			);
-			path = Extensions;
-			sourceTree = "<group>";
-		};
 		5A5CED5E916868092FEE13A6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -365,7 +357,6 @@
 		964F6AF0234DD843009FF180 /* Libs */ = {
 			isa = PBXGroup;
 			children = (
-				3FF0025E2420E32E00BBAAC5 /* Extensions */,
 				96F1152E236090AC00E306F9 /* Paterns */,
 				967363AC234398DF008695FB /* Sourcery */,
 				96FACF992330FF7A0003F86E /* FlowControllers */,
@@ -786,6 +777,7 @@
 			isa = PBXGroup;
 			children = (
 				96EE463023608317004623BC /* RX+Extensions.swift */,
+				3FF0025F2420E35200BBAAC5 /* DisposeBag+Extensions.swift */,
 			);
 			path = RX;
 			sourceTree = "<group>";
@@ -1298,7 +1290,6 @@
 			files = (
 				969ECC0F2344EBA10034478E /* AutoEquatable.generated.swift in Sources */,
 				96FACFAC2330FF7A0003F86E /* NavigationFlowViewController.swift in Sources */,
-				3FF002602420E35200BBAAC5 /* DisposeBag+Extensions.swift in Sources */,
 				96FACFA72330FF7A0003F86E /* FlowViewControllerOutEvent.swift in Sources */,
 				964F6AD3234DBCFA009FF180 /* PetConfigurator.swift in Sources */,
 				968B40C1232BDFE300350DB5 /* ViewModel.swift in Sources */,
@@ -1339,6 +1330,7 @@
 			files = (
 				96EE463123608317004623BC /* RX+Extensions.swift in Sources */,
 				96E583212332539A0041EF79 /* AppFlowController.swift in Sources */,
+				3FF002612420E8BB00BBAAC5 /* DisposeBag+Extensions.swift in Sources */,
 				964F6B3E234E31F2009FF180 /* PetTableViewCell.swift in Sources */,
 				96B4BAFE23211F03009661C8 /* AppDelegate.swift in Sources */,
 				96E58325233254CC0041EF79 /* PetsFlowController.swift in Sources */,

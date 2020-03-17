@@ -58,7 +58,9 @@ class PetsFlowController: NavigationControllerContainer<NavigationControllerDefa
         let view = PetView(viewModel: viewModel)
         
         self.disposeBag.insert(
-            viewModel.fetchRandomPetEvent.bind { [weak self] in  }
+            viewModel.fetchRandomPet.bind {
+                print("random")
+            }
         )
         
         self.pushViewController(view, animated: true)

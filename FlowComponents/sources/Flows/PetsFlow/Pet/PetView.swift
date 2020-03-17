@@ -33,7 +33,7 @@ public class PetView: MVVMView<PetViewModel, PetConfigurator> {
             self.bindText(self.viewModel.petAge, to: self.age),
             self.bindText(self.viewModel.petType, to: self.type),
             self.imageView.map { self.viewModel.petImage.bind(to: $0.rx.image) },
-            self.randomize?.rx.tap.bind { [weak self] in self?.viewModel.fetchRandomPet() }
+            self.randomize?.rx.tap.bind(to: self.viewModel.fetchRandomPet)
         )
     }
     
