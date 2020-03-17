@@ -8,7 +8,7 @@
 
 import RxSwift
 
-extension DisposeBag {
+public extension DisposeBag {
     
     func insert(_ values: [Disposable?]) {
         let result = values.compactMap { $0 }

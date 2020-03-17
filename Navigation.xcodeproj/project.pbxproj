@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3FF002612420E8BB00BBAAC5 /* DisposeBag+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF0025F2420E35200BBAAC5 /* DisposeBag+Extensions.swift */; };
+		3FF0028E2421115F00BBAAC5 /* UIBindings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF0028B24210CB500BBAAC5 /* UIBindings.swift */; };
+		3FF0028F2421116200BBAAC5 /* DisposeBag+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF0025F2420E35200BBAAC5 /* DisposeBag+Extensions.swift */; };
+		3FF0029124211A8800BBAAC5 /* UIBindings+ControlEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF0029024211A8800BBAAC5 /* UIBindings+ControlEvent.swift */; };
 		964F6AD2234DBCF6009FF180 /* PetsConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964F6ACA234DB940009FF180 /* PetsConfigurator.swift */; };
 		964F6AD3234DBCFA009FF180 /* PetConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964F6ACB234DB940009FF180 /* PetConfigurator.swift */; };
 		964F6AD4234DBD01009FF180 /* Configurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964F6AC8234DB940009FF180 /* Configurator.swift */; };
@@ -172,6 +174,8 @@
 		338607E6336B7BC2CA9DC6BD /* Pods-ViewModels.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ViewModels.release.xcconfig"; path = "Target Support Files/Pods-ViewModels/Pods-ViewModels.release.xcconfig"; sourceTree = "<group>"; };
 		3DC8AFA1DA1431196265DA9C /* Pods-Navigation.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Navigation.debug.xcconfig"; path = "Target Support Files/Pods-Navigation/Pods-Navigation.debug.xcconfig"; sourceTree = "<group>"; };
 		3FF0025F2420E35200BBAAC5 /* DisposeBag+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DisposeBag+Extensions.swift"; sourceTree = "<group>"; };
+		3FF0028B24210CB500BBAAC5 /* UIBindings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBindings.swift; sourceTree = "<group>"; };
+		3FF0029024211A8800BBAAC5 /* UIBindings+ControlEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBindings+ControlEvent.swift"; sourceTree = "<group>"; };
 		596A7F2CD6A003D1C6C8C9CA /* Pods_Navigation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Navigation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A9D690BA3BB3F51424A4CA1 /* Pods_UI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		829E38131DD1437818EDEA75 /* Pods-FlowComponents.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlowComponents.release.xcconfig"; path = "Target Support Files/Pods-FlowComponents/Pods-FlowComponents.release.xcconfig"; sourceTree = "<group>"; };
@@ -314,6 +318,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3FF0028D2421112300BBAAC5 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				3FF0028B24210CB500BBAAC5 /* UIBindings.swift */,
+				3FF0029024211A8800BBAAC5 /* UIBindings+ControlEvent.swift */,
+				3FF0025F2420E35200BBAAC5 /* DisposeBag+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		5A5CED5E916868092FEE13A6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -357,6 +371,7 @@
 		964F6AF0234DD843009FF180 /* Libs */ = {
 			isa = PBXGroup;
 			children = (
+				3FF0028D2421112300BBAAC5 /* Extensions */,
 				96F1152E236090AC00E306F9 /* Paterns */,
 				967363AC234398DF008695FB /* Sourcery */,
 				96FACF992330FF7A0003F86E /* FlowControllers */,
@@ -777,7 +792,6 @@
 			isa = PBXGroup;
 			children = (
 				96EE463023608317004623BC /* RX+Extensions.swift */,
-				3FF0025F2420E35200BBAAC5 /* DisposeBag+Extensions.swift */,
 			);
 			path = RX;
 			sourceTree = "<group>";
@@ -1112,12 +1126,12 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
+				96B4BAF923211F03009661C8 /* Navigation */,
 				964F6AD9234DBD7B009FF180 /* Models */,
 				968B40C8232BE08800350DB5 /* Managers */,
 				96E582BD23323EC30041EF79 /* UIKitLib */,
 				968B40AF232BDFAF00350DB5 /* FlowComponents */,
 				964F6B10234E2182009FF180 /* TableAdapter */,
-				96B4BAF923211F03009661C8 /* Navigation */,
 			);
 		};
 /* End PBXProject section */
@@ -1294,7 +1308,9 @@
 				964F6AD3234DBCFA009FF180 /* PetConfigurator.swift in Sources */,
 				968B40C1232BDFE300350DB5 /* ViewModel.swift in Sources */,
 				96FACFAB2330FF7A0003F86E /* NavigationControllerPresenter.swift in Sources */,
+				3FF0028F2421116200BBAAC5 /* DisposeBag+Extensions.swift in Sources */,
 				964F6AD4234DBD01009FF180 /* Configurator.swift in Sources */,
+				3FF0028E2421115F00BBAAC5 /* UIBindings.swift in Sources */,
 				96FACFAD2330FF7A0003F86E /* FlowEventAction.swift in Sources */,
 				96FACFA92330FF7A0003F86E /* NavigationControllerDefaultPresenter.swift in Sources */,
 				968B40BE232BDFDB00350DB5 /* PetViewModel.swift in Sources */,
@@ -1306,6 +1322,7 @@
 				968B40C0232BDFE300350DB5 /* MVVMView.swift in Sources */,
 				96FACFA82330FF7A0003F86E /* NavigationControllerContainer.swift in Sources */,
 				96FACF942330F4160003F86E /* PetsView.swift in Sources */,
+				3FF0029124211A8800BBAAC5 /* UIBindings+ControlEvent.swift in Sources */,
 				96FACFAA2330FF7A0003F86E /* NavigationControllerModalPresenter.swift in Sources */,
 				968B40BD232BDFD900350DB5 /* PetView.swift in Sources */,
 			);
@@ -1330,7 +1347,6 @@
 			files = (
 				96EE463123608317004623BC /* RX+Extensions.swift in Sources */,
 				96E583212332539A0041EF79 /* AppFlowController.swift in Sources */,
-				3FF002612420E8BB00BBAAC5 /* DisposeBag+Extensions.swift in Sources */,
 				964F6B3E234E31F2009FF180 /* PetTableViewCell.swift in Sources */,
 				96B4BAFE23211F03009661C8 /* AppDelegate.swift in Sources */,
 				96E58325233254CC0041EF79 /* PetsFlowController.swift in Sources */,

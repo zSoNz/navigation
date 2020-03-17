@@ -15,18 +15,6 @@ import RxRelay
 
 import Models
 
-//public enum PetsViewModelOutputEvents: Events {
-//
-//    case didSelecting(indexPath: IndexPath)
-//    case didSelectPet(Pet)
-//    case needDowloadPets
-//}
-
-//public enum PetsViewModelInputEvents: Events {
-//
-//    case updatePets([Pet])
-//}
-
 public class PetsViewModel: ViewModel<PetsConfigurator> {
     
     //MARK: -

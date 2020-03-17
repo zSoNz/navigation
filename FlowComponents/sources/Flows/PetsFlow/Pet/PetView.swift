@@ -29,15 +29,11 @@ public class PetView: MVVMView<PetViewModel, PetConfigurator> {
     
     public override func configViewModel() {
         self.disposeBag.insert(
-            self.bindText(self.viewModel.petName, to: self.name),
-            self.bindText(self.viewModel.petAge, to: self.age),
-            self.bindText(self.viewModel.petType, to: self.type),
-            self.imageView.map { self.viewModel.petImage.bind(to: $0.rx.image) },
-            self.randomize?.rx.tap.bind(to: self.viewModel.fetchRandomPet)
+            self.viewModel.petName ~> self.name,
+            self.viewModel.petAge ~> self.age,
+            self.viewModel.petType ~> self.type,
+            self.viewModel.petImage ~> self.imageView,
+            self.randomize ~> self.viewModel.fetchRandomPet
         )
-    }
-    
-    private func bindText(_ item: Observable<String>, to: UILabel?) -> Disposable? {
-        to.map { item.bind(to: $0.rx.text) }
     }
 }
