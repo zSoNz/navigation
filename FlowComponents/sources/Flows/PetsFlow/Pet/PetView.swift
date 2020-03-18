@@ -28,8 +28,6 @@ public class PetView: MVVMView<PetViewModel, PetConfigurator, PetViewModelOutput
     //MARK: Overrided
 
     override func prepareBindings(disposeBag: DisposeBag) {
-        self.randomize?.setTitle(L10n.randomize, for: .normal)
-        
         disposeBag.insert(
             self.viewModel.petName ~> self.name,
             self.viewModel.petAge ~> self.age,
@@ -37,5 +35,9 @@ public class PetView: MVVMView<PetViewModel, PetConfigurator, PetViewModelOutput
             self.viewModel.petImage ~> self.imageView,
             self.randomize?.rx.tap.map { .fetchRandomPet } ~> self.eventsEmiter
         )
+    }
+    
+    override func prepareLocalization() {
+        self.randomize?.setTitle(L10n.randomize, for: .normal)
     }
 }

@@ -49,12 +49,17 @@ open class MVVMView<ViewModelType, ConfiguratorType, ViewModelOutputEventsType, 
         super.viewDidLoad()
         
         self.prepareBindings(disposeBag: self.disposeBag)
+        self.prepareLocalization()
     }
     
     //MARK: -
     //MARK: Overrding methods
     
     func prepareBindings(disposeBag: DisposeBag) {
+        
+    }
+    
+    func prepareLocalization() {
         
     }
 }
