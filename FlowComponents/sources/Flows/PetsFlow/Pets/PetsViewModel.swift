@@ -15,7 +15,18 @@ import RxRelay
 
 import Models
 
-public class PetsViewModel: ViewModel<PetsConfigurator> {
+public enum PetsViewModelOutputEvents: Events {
+    
+    case didSelectPet(Pet)
+}
+
+public enum PetsViewModelInputEvents: Events {
+
+    case didSelecting(indexPath: IndexPath)
+    case updatePets([Pet])
+}
+
+public class PetsViewModel: ViewModel<PetsConfigurator, PetsViewModelOutputEvents, PetsViewModelInputEvents> {
     
     //MARK: -
     //MARK: Variables
@@ -24,12 +35,7 @@ public class PetsViewModel: ViewModel<PetsConfigurator> {
         self.petsEmitter.asObservable()
     }
     
-    public var selectedPet: Observable<Pet> {
-        self.selectedPetEmitter.asObservable()
-    }
-    
     private let petsEmitter: BehaviorRelay<Pets>
-    private let selectedPetEmitter = PublishRelay<Pet>()
     
     //MARK: -
     //MARK: Initializations
@@ -41,14 +47,16 @@ public class PetsViewModel: ViewModel<PetsConfigurator> {
     }
     
     //MARK: -
-    //MARK: Public
+    //MARK: Override
     
-    public func selectPet(by index: Int) {
-        let pet = self.petsEmitter.value.values[index]
-        self.selectedPetEmitter.accept(pet)
-    }
-    
-    public func update(pets: Pets) {
-        self.petsEmitter.accept(pets)
+    override func handle(events: PetsViewModelInputEvents) {
+        switch events {
+        case .updatePets(let models):
+            let pets = Pets(values: models)
+            self.petsEmitter.accept(pets)
+        case .didSelecting(let indexPath):
+            let pet = self.petsEmitter.value.values[indexPath.row]
+            self.outputEventsEmiter.accept(.didSelectPet(pet))
+        }
     }
 }

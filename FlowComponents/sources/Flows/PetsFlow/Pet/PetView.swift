@@ -11,10 +11,8 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-public class PetView: MVVMView<PetViewModel, PetConfigurator> {
-    
-    private let disposeBag = DisposeBag()
-    
+public class PetView: MVVMView<PetViewModel, PetConfigurator, PetViewModelOutputEvents, PetViewModelInputEvents> {
+        
     //MARK: -
     //MARK: Outlets
     
@@ -26,14 +24,14 @@ public class PetView: MVVMView<PetViewModel, PetConfigurator> {
 
     //MARK: -
     //MARK: Overrided
-    
-    public override func configViewModel() {
-        self.disposeBag.insert(
+
+    override func prepareBindings(disposeBag: DisposeBag) {
+        disposeBag.insert(
             self.viewModel.petName ~> self.name,
             self.viewModel.petAge ~> self.age,
             self.viewModel.petType ~> self.type,
             self.viewModel.petImage ~> self.imageView,
-            self.randomize ~> self.viewModel.fetchRandomPet
+            self.randomize?.rx.tap.map { .fetchRandomPet } ~> self.eventsEmiter
         )
     }
 }

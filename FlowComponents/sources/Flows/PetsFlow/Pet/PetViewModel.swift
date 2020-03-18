@@ -15,15 +15,21 @@ import RxRelay
 
 import Models
 
+public enum PetViewModelOutputEvents: Events {
+    
+}
 
-public class PetViewModel: ViewModel<PetConfigurator> {
+public enum PetViewModelInputEvents: Events {
+    
+    case fetchRandomPet
+}
+
+public class PetViewModel: ViewModel<PetConfigurator, PetViewModelOutputEvents, PetViewModelInputEvents> {
     
     //MARK: -
     //MARK: Accesors
     
     private let pet: BehaviorRelay<Pet>
-    
-    public let fetchRandomPet = PublishRelay<Void>()
     
     var petImage: Observable<UIImage?> {
         self.pet.map { $0.image }
@@ -56,6 +62,13 @@ public class PetViewModel: ViewModel<PetConfigurator> {
         self.pet = .init(value: configurator.pet)
         
         super.init(with: configurator)
+    }
+    
+    override func handle(events: InputEvents) {
+        switch events {
+        case .fetchRandomPet:
+            break
+        }
     }
 }
 

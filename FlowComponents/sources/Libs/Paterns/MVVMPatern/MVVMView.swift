@@ -9,12 +9,25 @@
 import UIKit
 
 import RxSwift
+import RxRelay
 
-open class MVVMView<ViewModelType, ConfiguratorType>: UIViewController
-    where ViewModelType: ViewModel<ConfiguratorType>, ConfiguratorType: Configurator
+open class MVVMView<ViewModelType, ConfiguratorType, ViewModelOutputEventsType, ViewModelInputEventsType>: UIViewController
+    where ViewModelType: ViewModel<ConfiguratorType, ViewModelOutputEventsType, ViewModelInputEventsType>, ViewModelOutputEventsType: Events, ConfiguratorType: Configurator, ViewModelInputEventsType: Events
 {
     
-    public let viewModel: ViewModelType
+    //MARK: -
+    //MARK: Accesors
+    
+    public var events: Observable<ViewModelOutputEventsType> {
+        return self.viewModel.events
+    }
+    
+    public var eventsEmiter: PublishRelay<ViewModelInputEventsType> {
+        return self.viewModel.eventEmiter
+    }
+    
+    internal let viewModel: ViewModelType
+    private let disposeBag = DisposeBag()
     
     //MARK: -
     //MARK: Initializations
@@ -29,13 +42,19 @@ open class MVVMView<ViewModelType, ConfiguratorType>: UIViewController
         fatalError("init(coder:) has not been implemented")
     }
     
+    //MARK: -
+    //MARK: View Life-Cylce
+    
     open override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.configViewModel()
+        self.prepareBindings(disposeBag: self.disposeBag)
     }
     
-    open func configViewModel() {
+    //MARK: -
+    //MARK: Overrding methods
+    
+    func prepareBindings(disposeBag: DisposeBag) {
         
     }
 }

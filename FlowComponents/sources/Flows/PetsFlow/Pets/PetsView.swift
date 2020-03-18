@@ -11,11 +11,9 @@ import UIKit
 import TableAdapter
 import RxSwift
 
-public class PetsView: MVVMView<PetsViewModel, PetsConfigurator> {
+public class PetsView: MVVMView<PetsViewModel, PetsConfigurator, PetsViewModelOutputEvents, PetsViewModelInputEvents> {
     
     @IBOutlet private var tableView: UITableView?
-    
-    private let disposeBag = DisposeBag()
     
     //MARK: -
     //MARK: Accesors
@@ -35,7 +33,7 @@ public class PetsView: MVVMView<PetsViewModel, PetsConfigurator> {
     private func handle(events: TableViewEvents) {
         switch events {
         case .didSelect(let index):
-            self.viewModel.selectPet(by: index.row)
+            self.eventsEmiter.accept(.didSelecting(indexPath: index))
         default: break
         }
     }
@@ -43,12 +41,12 @@ public class PetsView: MVVMView<PetsViewModel, PetsConfigurator> {
     //MARK: -
     //MARK: Overrided
     
-    public override func configViewModel() {
+    override func prepareBindings(disposeBag: DisposeBag) {
         self.viewModel.pets
             .map { [Section(cell: PetTableViewCell.self, models: $0.values)] }
             .bind { [weak self] in
                 self?.adapter.sections = $0
             }
-            .disposed(by: self.disposeBag)
+            .disposed(by: disposeBag)
     }
 }

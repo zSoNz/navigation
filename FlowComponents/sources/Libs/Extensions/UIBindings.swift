@@ -21,6 +21,22 @@ public func ~> <Value>(source: Observable<Value>, binder: Binder<Value?>?) -> Di
     return binder.map { source.bind(to: $0) }
 }
 
+public func ~> <Value>(source: Observable<Value>?, binder: PublishRelay<Value>) -> Disposable? {
+    return source?.bind(to: binder)
+}
+
+public func ~> <Value>(source: Observable<Value>?, binder: BehaviorRelay<Value>) -> Disposable? {
+    return source?.bind(to: binder)
+}
+
+public func ~> <Value>(source: Observable<Value>?, binder: PublishSubject<Value>) -> Disposable? {
+    return source?.bind(to: binder)
+}
+
+public func ~> <Value>(source: Observable<Value>?, binder: BehaviorSubject<Value>) -> Disposable? {
+    return source?.bind(to: binder)
+}
+
 //MARK: -
 //MARK: UILabel
 

@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		3FF0028E2421115F00BBAAC5 /* UIBindings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF0028B24210CB500BBAAC5 /* UIBindings.swift */; };
 		3FF0028F2421116200BBAAC5 /* DisposeBag+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF0025F2420E35200BBAAC5 /* DisposeBag+Extensions.swift */; };
-		3FF0029124211A8800BBAAC5 /* UIBindings+ControlEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF0029024211A8800BBAAC5 /* UIBindings+ControlEvent.swift */; };
 		964F6AD2234DBCF6009FF180 /* PetsConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964F6ACA234DB940009FF180 /* PetsConfigurator.swift */; };
 		964F6AD3234DBCFA009FF180 /* PetConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964F6ACB234DB940009FF180 /* PetConfigurator.swift */; };
 		964F6AD4234DBD01009FF180 /* Configurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964F6AC8234DB940009FF180 /* Configurator.swift */; };
@@ -175,7 +174,6 @@
 		3DC8AFA1DA1431196265DA9C /* Pods-Navigation.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Navigation.debug.xcconfig"; path = "Target Support Files/Pods-Navigation/Pods-Navigation.debug.xcconfig"; sourceTree = "<group>"; };
 		3FF0025F2420E35200BBAAC5 /* DisposeBag+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DisposeBag+Extensions.swift"; sourceTree = "<group>"; };
 		3FF0028B24210CB500BBAAC5 /* UIBindings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBindings.swift; sourceTree = "<group>"; };
-		3FF0029024211A8800BBAAC5 /* UIBindings+ControlEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBindings+ControlEvent.swift"; sourceTree = "<group>"; };
 		596A7F2CD6A003D1C6C8C9CA /* Pods_Navigation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Navigation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A9D690BA3BB3F51424A4CA1 /* Pods_UI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		829E38131DD1437818EDEA75 /* Pods-FlowComponents.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlowComponents.release.xcconfig"; path = "Target Support Files/Pods-FlowComponents/Pods-FlowComponents.release.xcconfig"; sourceTree = "<group>"; };
@@ -322,7 +320,6 @@
 			isa = PBXGroup;
 			children = (
 				3FF0028B24210CB500BBAAC5 /* UIBindings.swift */,
-				3FF0029024211A8800BBAAC5 /* UIBindings+ControlEvent.swift */,
 				3FF0025F2420E35200BBAAC5 /* DisposeBag+Extensions.swift */,
 			);
 			path = Extensions;
@@ -1322,7 +1319,6 @@
 				968B40C0232BDFE300350DB5 /* MVVMView.swift in Sources */,
 				96FACFA82330FF7A0003F86E /* NavigationControllerContainer.swift in Sources */,
 				96FACF942330F4160003F86E /* PetsView.swift in Sources */,
-				3FF0029124211A8800BBAAC5 /* UIBindings+ControlEvent.swift in Sources */,
 				96FACFAA2330FF7A0003F86E /* NavigationControllerModalPresenter.swift in Sources */,
 				968B40BD232BDFD900350DB5 /* PetView.swift in Sources */,
 			);
