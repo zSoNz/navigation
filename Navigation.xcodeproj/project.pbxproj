@@ -35,8 +35,6 @@
 		964F6B3C234E2C3C009FF180 /* PetsFetcherManagerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964F6B39234E2C12009FF180 /* PetsFetcherManagerType.swift */; };
 		964F6B3D234E314A009FF180 /* PetTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 964F6AF8234E1D6D009FF180 /* PetTableViewCell.xib */; };
 		964F6B3E234E31F2009FF180 /* PetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964F6AF7234E1D6D009FF180 /* PetTableViewCell.swift */; };
-		966DFAEA23477926009869AC /* Mirroring.stencil in Resources */ = {isa = PBXBuildFile; fileRef = 966DFAE923477926009869AC /* Mirroring.stencil */; };
-		966DFAEC23477936009869AC /* Mirroring.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966DFAEB23477936009869AC /* Mirroring.generated.swift */; };
 		968B40AA232BDDA800350DB5 /* PetView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 968B40A7232BDD7000350DB5 /* PetView.xib */; };
 		968B40B4232BDFAF00350DB5 /* FlowComponents.h in Headers */ = {isa = PBXBuildFile; fileRef = 968B40B2232BDFAF00350DB5 /* FlowComponents.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		968B40B7232BDFAF00350DB5 /* FlowComponents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 968B40B0232BDFAF00350DB5 /* FlowComponents.framework */; };
@@ -203,8 +201,6 @@
 		964F6B34234E2BC1009FF180 /* PetsFetcherManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetsFetcherManager.swift; sourceTree = "<group>"; };
 		964F6B39234E2C12009FF180 /* PetsFetcherManagerType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetsFetcherManagerType.swift; sourceTree = "<group>"; };
 		966031C8232A82CC00C25B3B /* Events.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Events.swift; sourceTree = "<group>"; };
-		966DFAE923477926009869AC /* Mirroring.stencil */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Mirroring.stencil; sourceTree = "<group>"; };
-		966DFAEB23477936009869AC /* Mirroring.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mirroring.generated.swift; sourceTree = "<group>"; };
 		967363AE2343A0AD008695FB /* AutoEquatable.stencil */ = {isa = PBXFileReference; lastKnownFileType = text; path = AutoEquatable.stencil; sourceTree = "<group>"; };
 		968B40A6232BDD7000350DB5 /* PetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetView.swift; sourceTree = "<group>"; };
 		968B40A7232BDD7000350DB5 /* PetView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PetView.xib; sourceTree = "<group>"; };
@@ -498,7 +494,6 @@
 		967363AD2343A043008695FB /* Templates */ = {
 			isa = PBXGroup;
 			children = (
-				966DFAE923477926009869AC /* Mirroring.stencil */,
 				967363AE2343A0AD008695FB /* AutoEquatable.stencil */,
 			);
 			path = Templates;
@@ -507,7 +502,6 @@
 		967363B12343A194008695FB /* ViewModelsExtensions */ = {
 			isa = PBXGroup;
 			children = (
-				966DFAEB23477936009869AC /* Mirroring.generated.swift */,
 				969ECC0D2344EB990034478E /* AutoEquatable.generated.swift */,
 			);
 			path = ViewModelsExtensions;
@@ -1153,7 +1147,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				964F6AFA234E1D6D009FF180 /* PetTableViewCell.xib in Resources */,
-				966DFAEA23477926009869AC /* Mirroring.stencil in Resources */,
 				968B40BC232BDFD600350DB5 /* PetView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1313,7 +1306,6 @@
 				968B40BE232BDFDB00350DB5 /* PetViewModel.swift in Sources */,
 				968B40C3232BDFE300350DB5 /* Events.swift in Sources */,
 				96E583272332564E0041EF79 /* PetsViewModel.swift in Sources */,
-				966DFAEC23477936009869AC /* Mirroring.generated.swift in Sources */,
 				964F6AF9234E1D6D009FF180 /* PetTableViewCell.swift in Sources */,
 				964F6AD2234DBCF6009FF180 /* PetsConfigurator.swift in Sources */,
 				968B40C0232BDFE300350DB5 /* MVVMView.swift in Sources */,
