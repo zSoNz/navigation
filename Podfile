@@ -19,3 +19,9 @@ target 'FlowComponents' do
    rxSwift
    pod 'Sourcery'
 end
+
+target 'Resources' do
+  use_frameworks!
+
+  pod 'SwiftGen'
+end

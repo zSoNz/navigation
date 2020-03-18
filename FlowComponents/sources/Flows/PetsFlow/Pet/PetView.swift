@@ -8,6 +8,8 @@
 
 import UIKit
 
+import Resources
+
 import RxSwift
 import RxCocoa
 
@@ -26,6 +28,8 @@ public class PetView: MVVMView<PetViewModel, PetConfigurator, PetViewModelOutput
     //MARK: Overrided
 
     override func prepareBindings(disposeBag: DisposeBag) {
+        self.randomize?.setTitle(L10n.randomize, for: .normal)
+        
         disposeBag.insert(
             self.viewModel.petName ~> self.name,
             self.viewModel.petAge ~> self.age,
