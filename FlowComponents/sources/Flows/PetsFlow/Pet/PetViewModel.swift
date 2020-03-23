@@ -17,6 +17,7 @@ import Models
 
 public enum PetViewModelOutputEvents: Events {
     
+    case neadFetchRandomPet
 }
 
 public enum PetViewModelInputEvents: Events {
@@ -67,7 +68,7 @@ public class PetViewModel: ViewModel<PetConfigurator, PetViewModelOutputEvents, 
     override func handle(events: InputEvents) {
         switch events {
         case .fetchRandomPet:
-            break
+            self.outputEventsEmiter.accept(.neadFetchRandomPet)
         }
     }
 }

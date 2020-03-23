@@ -18,11 +18,11 @@ public class PetView: MVVMView<PetViewModel, PetConfigurator, PetViewModelOutput
     //MARK: -
     //MARK: Outlets
     
-    @IBOutlet private var imageView: UIImageView?
-    @IBOutlet private var name: UILabel?
-    @IBOutlet private var age: UILabel?
-    @IBOutlet private var type: UILabel?
-    @IBOutlet private var randomize: UIButton?
+    @IBOutlet internal var imageView: UIImageView?
+    @IBOutlet internal var name: UILabel?
+    @IBOutlet internal var age: UILabel?
+    @IBOutlet internal var type: UILabel?
+    @IBOutlet internal var randomize: UIButton?
 
     //MARK: -
     //MARK: Overrided

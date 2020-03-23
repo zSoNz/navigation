@@ -32,10 +32,10 @@ open class MVVMView<ViewModelType, ConfiguratorType, ViewModelOutputEventsType, 
     //MARK: -
     //MARK: Initializations
     
-    public init(viewModel: ViewModelType) {
+    public init(viewModel: ViewModelType, bundle: Bundle? = nil) {
         self.viewModel = viewModel
         
-        super.init(nibName: nil, bundle: nil)
+        super.init(nibName: nil, bundle: bundle)
     }
     
     required public init?(coder aDecoder: NSCoder) {

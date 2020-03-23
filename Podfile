@@ -14,6 +14,14 @@ target 'Navigation' do
   rxSwift
 end
 
+target 'NavigationTests' do
+  use_frameworks!
+
+  pod 'Quick', '~> 2.1.0'
+  pod 'Nimble', '~> 8.0.1'
+  pod 'RxNimble', '~> 4.6.0', subspecs: ['RxBlocking', 'RxTest']
+end
+
 target 'FlowComponents' do
    use_frameworks!
    rxSwift
