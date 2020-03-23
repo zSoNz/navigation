@@ -14,7 +14,7 @@ import RxSwift
 import RxCocoa
 
 public class PetView: MVVMView<PetViewModel, PetConfigurator, PetViewModelOutputEvents, PetViewModelInputEvents> {
-    
+        
     //MARK: -
     //MARK: Outlets
     
@@ -23,22 +23,21 @@ public class PetView: MVVMView<PetViewModel, PetConfigurator, PetViewModelOutput
     @IBOutlet private var age: UILabel?
     @IBOutlet private var type: UILabel?
     @IBOutlet private var randomize: UIButton?
-    
+
     //MARK: -
     //MARK: Overrided
-    
-    override func fill(with viewModel: PetViewModel) {
-        self.imageView?.image = viewModel.petImage
 
-        self.name?.text = viewModel.petName
-        self.age?.text = viewModel.petAge
-        self.type?.text = viewModel.petType
-        self.randomize?.setTitle(L10n.randomize, for: .normal)
+    override func prepareBindings(disposeBag: DisposeBag) {
+        disposeBag.insert(
+            self.viewModel.petName ~> self.name,
+            self.viewModel.petAge ~> self.age,
+            self.viewModel.petType ~> self.type,
+            self.viewModel.petImage ~> self.imageView,
+            self.randomize?.rx.tap.map { .fetchRandomPet } ~> self.eventsEmiter
+        )
     }
     
-    override func prepareBindings(disposeBag: DisposeBag) {
-        self.randomize?.rx.tap
-            .bind { [weak self] in self?.eventsEmiter.onNext(.fetchRandomPet) }
-            .disposed(by: disposeBag)
+    override func prepareLocalization() {
+        self.randomize?.setTitle(L10n.randomize, for: .normal)
     }
 }

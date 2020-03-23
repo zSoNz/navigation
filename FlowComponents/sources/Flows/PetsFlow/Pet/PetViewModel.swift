@@ -10,11 +10,13 @@ import UIKit
 
 import Managers
 
+import RxSwift
+import RxRelay
+
 import Models
 
 public enum PetViewModelOutputEvents: Events {
     
-    case fetchRandomPet
 }
 
 public enum PetViewModelInputEvents: Events {
@@ -27,29 +29,46 @@ public class PetViewModel: ViewModel<PetConfigurator, PetViewModelOutputEvents, 
     //MARK: -
     //MARK: Accesors
     
-    private(set) var pet: Pet
+    private let pet: BehaviorRelay<Pet>
     
-    var petName: String {
-        return self.pet.name.uppercased()
+    var petImage: Observable<UIImage?> {
+        self.pet.map { $0.image }
     }
     
-    var petAge: String {
-        let age = "ᕦ(ò_óˇ)ᕤ " + self.pet.age.description + " ᕦ(ò_óˇ)ᕤ"
-        return self.pet.isEmpty ? "-" : age
+    var petName: Observable<String> {
+        self.pet.map { $0.name.uppercased() }
     }
     
-    var petType: String {
-        let type = self.pet.type.rawValue.uppercased() + "\n(●´ω `●)"
-        return self.pet.isEmpty ? "-" : type
+    var petAge: Observable<String>{
+        self.pet.map {
+            $0.isEmpty
+                ? "-"
+                : "ᕦ(ò_óˇ)ᕤ " + $0.age.description + " ᕦ(ò_óˇ)ᕤ"
+        }
+    }
+    
+    var petType: Observable<String> {
+        self.pet.map {
+            $0.isEmpty
+                ? "-"
+                : $0.type.rawValue.uppercased() + "\n(●´ω `●)"
+        }
     }
     
     //MARK: -
     //MARK: Initializations
     
     public init(configurator: PetConfigurator) {
-        self.pet = configurator.pet
+        self.pet = .init(value: configurator.pet)
         
         super.init(with: configurator)
+    }
+    
+    override func handle(events: InputEvents) {
+        switch events {
+        case .fetchRandomPet:
+            break
+        }
     }
 }
 

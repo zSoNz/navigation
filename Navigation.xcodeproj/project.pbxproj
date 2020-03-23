@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3FF0028E2421115F00BBAAC5 /* UIBindings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF0028B24210CB500BBAAC5 /* UIBindings.swift */; };
+		3FF0028F2421116200BBAAC5 /* DisposeBag+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF0025F2420E35200BBAAC5 /* DisposeBag+Extensions.swift */; };
 		3FF0026B2420F19E00BBAAC5 /* Resources.h in Headers */ = {isa = PBXBuildFile; fileRef = 3FF002692420F19E00BBAAC5 /* Resources.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3FF0026E2420F19E00BBAAC5 /* Resources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FF002672420F19E00BBAAC5 /* Resources.framework */; };
 		3FF0026F2420F19E00BBAAC5 /* Resources.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3FF002672420F19E00BBAAC5 /* Resources.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -39,8 +41,6 @@
 		964F6B3C234E2C3C009FF180 /* PetsFetcherManagerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964F6B39234E2C12009FF180 /* PetsFetcherManagerType.swift */; };
 		964F6B3D234E314A009FF180 /* PetTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 964F6AF8234E1D6D009FF180 /* PetTableViewCell.xib */; };
 		964F6B3E234E31F2009FF180 /* PetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964F6AF7234E1D6D009FF180 /* PetTableViewCell.swift */; };
-		966DFAEA23477926009869AC /* Mirroring.stencil in Resources */ = {isa = PBXBuildFile; fileRef = 966DFAE923477926009869AC /* Mirroring.stencil */; };
-		966DFAEC23477936009869AC /* Mirroring.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966DFAEB23477936009869AC /* Mirroring.generated.swift */; };
 		968B40AA232BDDA800350DB5 /* PetView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 968B40A7232BDD7000350DB5 /* PetView.xib */; };
 		968B40B4232BDFAF00350DB5 /* FlowComponents.h in Headers */ = {isa = PBXBuildFile; fileRef = 968B40B2232BDFAF00350DB5 /* FlowComponents.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		968B40B7232BDFAF00350DB5 /* FlowComponents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 968B40B0232BDFAF00350DB5 /* FlowComponents.framework */; };
@@ -187,6 +187,8 @@
 		303F455A192EBCDF1CFD4C29 /* Pods-UI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UI.debug.xcconfig"; path = "Target Support Files/Pods-UI/Pods-UI.debug.xcconfig"; sourceTree = "<group>"; };
 		338607E6336B7BC2CA9DC6BD /* Pods-ViewModels.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ViewModels.release.xcconfig"; path = "Target Support Files/Pods-ViewModels/Pods-ViewModels.release.xcconfig"; sourceTree = "<group>"; };
 		3DC8AFA1DA1431196265DA9C /* Pods-Navigation.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Navigation.debug.xcconfig"; path = "Target Support Files/Pods-Navigation/Pods-Navigation.debug.xcconfig"; sourceTree = "<group>"; };
+		3FF0025F2420E35200BBAAC5 /* DisposeBag+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DisposeBag+Extensions.swift"; sourceTree = "<group>"; };
+		3FF0028B24210CB500BBAAC5 /* UIBindings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBindings.swift; sourceTree = "<group>"; };
 		3FF002672420F19E00BBAAC5 /* Resources.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Resources.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FF002692420F19E00BBAAC5 /* Resources.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Resources.h; sourceTree = "<group>"; };
 		3FF0026A2420F19E00BBAAC5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -225,8 +227,6 @@
 		964F6B34234E2BC1009FF180 /* PetsFetcherManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetsFetcherManager.swift; sourceTree = "<group>"; };
 		964F6B39234E2C12009FF180 /* PetsFetcherManagerType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetsFetcherManagerType.swift; sourceTree = "<group>"; };
 		966031C8232A82CC00C25B3B /* Events.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Events.swift; sourceTree = "<group>"; };
-		966DFAE923477926009869AC /* Mirroring.stencil */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Mirroring.stencil; sourceTree = "<group>"; };
-		966DFAEB23477936009869AC /* Mirroring.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mirroring.generated.swift; sourceTree = "<group>"; };
 		967363AE2343A0AD008695FB /* AutoEquatable.stencil */ = {isa = PBXFileReference; lastKnownFileType = text; path = AutoEquatable.stencil; sourceTree = "<group>"; };
 		968B40A6232BDD7000350DB5 /* PetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetView.swift; sourceTree = "<group>"; };
 		968B40A7232BDD7000350DB5 /* PetView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PetView.xib; sourceTree = "<group>"; };
@@ -347,6 +347,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3FF0028D2421112300BBAAC5 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				3FF0028B24210CB500BBAAC5 /* UIBindings.swift */,
+				3FF0025F2420E35200BBAAC5 /* DisposeBag+Extensions.swift */,
+			);
+			path = Extensions;
+            sourceTree = "<group>";
+        };
 		3FF002682420F19E00BBAAC5 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -419,6 +428,7 @@
 		964F6AF0234DD843009FF180 /* Libs */ = {
 			isa = PBXGroup;
 			children = (
+				3FF0028D2421112300BBAAC5 /* Extensions */,
 				96F1152E236090AC00E306F9 /* Paterns */,
 				967363AC234398DF008695FB /* Sourcery */,
 				96FACF992330FF7A0003F86E /* FlowControllers */,
@@ -548,7 +558,6 @@
 		967363AD2343A043008695FB /* Templates */ = {
 			isa = PBXGroup;
 			children = (
-				966DFAE923477926009869AC /* Mirroring.stencil */,
 				967363AE2343A0AD008695FB /* AutoEquatable.stencil */,
 			);
 			path = Templates;
@@ -557,7 +566,6 @@
 		967363B12343A194008695FB /* ViewModelsExtensions */ = {
 			isa = PBXGroup;
 			children = (
-				966DFAEB23477936009869AC /* Mirroring.generated.swift */,
 				969ECC0D2344EB990034478E /* AutoEquatable.generated.swift */,
 			);
 			path = ViewModelsExtensions;
@@ -1211,13 +1219,13 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
+				96B4BAF923211F03009661C8 /* Navigation */,
 				3FF002662420F19E00BBAAC5 /* Resources */,
 				964F6AD9234DBD7B009FF180 /* Models */,
 				968B40C8232BE08800350DB5 /* Managers */,
 				96E582BD23323EC30041EF79 /* UIKitLib */,
 				968B40AF232BDFAF00350DB5 /* FlowComponents */,
 				964F6B10234E2182009FF180 /* TableAdapter */,
-				96B4BAF923211F03009661C8 /* Navigation */,
 			);
 		};
 /* End PBXProject section */
@@ -1251,7 +1259,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				964F6AFA234E1D6D009FF180 /* PetTableViewCell.xib in Resources */,
-				966DFAEA23477926009869AC /* Mirroring.stencil in Resources */,
 				968B40BC232BDFD600350DB5 /* PetView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1451,13 +1458,14 @@
 				964F6AD3234DBCFA009FF180 /* PetConfigurator.swift in Sources */,
 				968B40C1232BDFE300350DB5 /* ViewModel.swift in Sources */,
 				96FACFAB2330FF7A0003F86E /* NavigationControllerPresenter.swift in Sources */,
+				3FF0028F2421116200BBAAC5 /* DisposeBag+Extensions.swift in Sources */,
 				964F6AD4234DBD01009FF180 /* Configurator.swift in Sources */,
+				3FF0028E2421115F00BBAAC5 /* UIBindings.swift in Sources */,
 				96FACFAD2330FF7A0003F86E /* FlowEventAction.swift in Sources */,
 				96FACFA92330FF7A0003F86E /* NavigationControllerDefaultPresenter.swift in Sources */,
 				968B40BE232BDFDB00350DB5 /* PetViewModel.swift in Sources */,
 				968B40C3232BDFE300350DB5 /* Events.swift in Sources */,
 				96E583272332564E0041EF79 /* PetsViewModel.swift in Sources */,
-				966DFAEC23477936009869AC /* Mirroring.generated.swift in Sources */,
 				964F6AF9234E1D6D009FF180 /* PetTableViewCell.swift in Sources */,
 				964F6AD2234DBCF6009FF180 /* PetsConfigurator.swift in Sources */,
 				968B40C0232BDFE300350DB5 /* MVVMView.swift in Sources */,

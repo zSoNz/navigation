@@ -9,21 +9,24 @@
 import UIKit
 
 import RxSwift
+import RxRelay
 
 open class MVVMView<ViewModelType, ConfiguratorType, ViewModelOutputEventsType, ViewModelInputEventsType>: UIViewController
     where ViewModelType: ViewModel<ConfiguratorType, ViewModelOutputEventsType, ViewModelInputEventsType>, ViewModelOutputEventsType: Events, ConfiguratorType: Configurator, ViewModelInputEventsType: Events
 {
-
+    
     //MARK: -
     //MARK: Accesors
     
     public var events: Observable<ViewModelOutputEventsType> {
-        return self.eventsEmiter.asObserver()
+        return self.viewModel.events
     }
     
-    let eventsEmiter = PublishSubject<ViewModelOutputEventsType>()
+    public var eventsEmiter: PublishRelay<ViewModelInputEventsType> {
+        return self.viewModel.eventEmiter
+    }
     
-    private let viewModel: ViewModelType
+    internal let viewModel: ViewModelType
     private let disposeBag = DisposeBag()
     
     //MARK: -
@@ -33,8 +36,6 @@ open class MVVMView<ViewModelType, ConfiguratorType, ViewModelOutputEventsType, 
         self.viewModel = viewModel
         
         super.init(nibName: nil, bundle: nil)
-        
-        self.prepareViewModelHandling()
     }
     
     required public init?(coder aDecoder: NSCoder) {
@@ -44,40 +45,21 @@ open class MVVMView<ViewModelType, ConfiguratorType, ViewModelOutputEventsType, 
     //MARK: -
     //MARK: View Life-Cylce
     
-    override open func viewDidLoad() {
+    open override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.fill(with: self.viewModel)
         self.prepareBindings(disposeBag: self.disposeBag)
-    }
-    
-    //MARK: -
-    //MARK: Private
-    
-    private func prepareViewModelHandling() {
-        self.viewModel
-            .internalEventsEmiter
-            .compactMap { [weak self] _ in self?.viewModel }
-            .subscribe(onNext: self.fill)
-            .disposed(by: self.disposeBag)
-        
-        self.eventsEmiter
-            .bind(to: self.viewModel.internalEventsEmiter)
-            .disposed(by: self.disposeBag)
-        
-        self.viewModel.didUpdate = { [weak self, weak viewModel] in
-            viewModel.map { self?.fill(with: $0) }
-        }
+        self.prepareLocalization()
     }
     
     //MARK: -
     //MARK: Overrding methods
     
-    func fill(with viewModel: ViewModelType) {
+    func prepareBindings(disposeBag: DisposeBag) {
         
     }
     
-    func prepareBindings(disposeBag: DisposeBag) {
+    func prepareLocalization() {
         
     }
 }

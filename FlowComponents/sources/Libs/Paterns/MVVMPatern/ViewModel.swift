@@ -13,18 +13,20 @@ import RxCocoa
 
 open class ViewModel<ConfiguratorType: Configurator, OutputEventsType: Events, InputEventsType: Events> {
 
+    typealias InputEvents = InputEventsType
+    typealias OutputEvents = OutputEventsType
+    
     //MARK: -
     //MARK: Variables
     
     public var events: Observable<OutputEventsType> {
-        return self.internalEventsEmiter.asObservable()
+        return self.outputEventsEmiter.asObservable()
     }
     
-    public let eventEmiter = PublishSubject<InputEventsType>()
+    public let eventEmiter = PublishRelay<InputEventsType>()
     
-    internal let internalEventsEmiter = PublishSubject<OutputEventsType>()
+    internal let outputEventsEmiter = PublishRelay<OutputEventsType>()
     internal let configurator: ConfiguratorType
-    internal var didUpdate: () -> () = {}
     
     private let disposeBag = DisposeBag()
     
@@ -41,11 +43,6 @@ open class ViewModel<ConfiguratorType: Configurator, OutputEventsType: Events, I
     //MARK: Private
     
     private func prepareHandling() {
-        self.events
-            .observeOn(MainScheduler.asyncInstance)
-            .bind(onNext: self.handle)
-            .disposed(by: self.disposeBag)
-        
         self.eventEmiter
             .observeOn(MainScheduler.asyncInstance)
             .bind(onNext: self.handle)
@@ -54,11 +51,7 @@ open class ViewModel<ConfiguratorType: Configurator, OutputEventsType: Events, I
     
     //MARK: -
     //MARK: Overriding
-    
-    func handle(events: OutputEventsType) {
-        
-    }
-    
+
     func handle(events: InputEventsType) {
         
     }

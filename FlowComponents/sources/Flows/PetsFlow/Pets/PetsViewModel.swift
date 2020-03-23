@@ -10,17 +10,19 @@ import Foundation
 
 import Managers
 
+import RxSwift
+import RxRelay
+
 import Models
 
 public enum PetsViewModelOutputEvents: Events {
     
-    case didSelecting(indexPath: IndexPath)
     case didSelectPet(Pet)
-    case needDowloadPets
 }
 
 public enum PetsViewModelInputEvents: Events {
 
+    case didSelecting(indexPath: IndexPath)
     case updatePets([Pet])
 }
 
@@ -29,40 +31,32 @@ public class PetsViewModel: ViewModel<PetsConfigurator, PetsViewModelOutputEvent
     //MARK: -
     //MARK: Variables
     
-    public var petsValues: [Pet] {
-        return self.pets.values
+    public var pets: Observable<Pets> {
+        self.petsEmitter.asObservable()
     }
     
-    private(set) public var pets: Pets
+    private let petsEmitter: BehaviorRelay<Pets>
     
     //MARK: -
     //MARK: Initializations
     
     public required override init(with configurator: PetsConfigurator) {
-        self.pets = configurator.pets
+        self.petsEmitter = .init(value: configurator.pets)
         
         super.init(with: configurator)
-        
-        self.internalEventsEmiter.onNext(.needDowloadPets)
     }
     
     //MARK: -
     //MARK: Override
     
-    override func handle(events: PetsViewModelOutputEvents) {
-        switch events {
-        case .didSelecting(indexPath: let index):
-            self.internalEventsEmiter.onNext(.didSelectPet(self.pets.values[index.row]))
-        default:
-            break
-        }
-    }
-    
     override func handle(events: PetsViewModelInputEvents) {
         switch events {
         case .updatePets(let models):
-            self.pets = Pets(values: models)
-            self.didUpdate()
+            let pets = Pets(values: models)
+            self.petsEmitter.accept(pets)
+        case .didSelecting(let indexPath):
+            let pet = self.petsEmitter.value.values[indexPath.row]
+            self.outputEventsEmiter.accept(.didSelectPet(pet))
         }
     }
 }

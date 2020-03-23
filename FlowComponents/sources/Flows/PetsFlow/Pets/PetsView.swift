@@ -9,6 +9,7 @@
 import UIKit
 
 import TableAdapter
+import RxSwift
 
 public class PetsView: MVVMView<PetsViewModel, PetsConfigurator, PetsViewModelOutputEvents, PetsViewModelInputEvents> {
     
@@ -25,23 +26,14 @@ public class PetsView: MVVMView<PetsViewModel, PetsConfigurator, PetsViewModelOu
         
         return adapter
     }()
-    
-    //MARK: -
-    //MARK: Life Cycle
-    
-    public override func viewDidLoad() {
-        super.viewDidLoad()
         
-        self.eventsEmiter.onNext(.needDowloadPets)
-    }
-    
     //MARK: -
     //MARK: Private
     
     private func handle(events: TableViewEvents) {
         switch events {
         case .didSelect(let index):
-            self.eventsEmiter.onNext(.didSelecting(indexPath: index))
+            self.eventsEmiter.accept(.didSelecting(indexPath: index))
         default: break
         }
     }
@@ -49,8 +41,12 @@ public class PetsView: MVVMView<PetsViewModel, PetsConfigurator, PetsViewModelOu
     //MARK: -
     //MARK: Overrided
     
-    override func fill(with viewModel: PetsViewModel) {
-        let section = Section(cell: PetTableViewCell.self, models: viewModel.petsValues)
-        self.adapter.sections = [section]
+    override func prepareBindings(disposeBag: DisposeBag) {
+        self.viewModel.pets
+            .map { [Section(cell: PetTableViewCell.self, models: $0.values)] }
+            .bind { [weak self] in
+                self?.adapter.sections = $0
+            }
+            .disposed(by: disposeBag)
     }
 }
