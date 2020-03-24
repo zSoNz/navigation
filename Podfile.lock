@@ -1,34 +1,63 @@
 PODS:
+  - Nimble (8.0.4)
+  - Quick (2.1.0)
+  - RxBlocking (5.0.1):
+    - RxSwift (~> 5)
   - RxCocoa (5.0.1):
     - RxRelay (~> 5)
     - RxSwift (~> 5)
+  - RxNimble/Core (4.6.0):
+    - Nimble (~> 8.0)
+    - RxSwift (~> 5.0)
+  - RxNimble/RxBlocking (4.6.0):
+    - RxBlocking
+    - RxNimble/Core
+  - RxNimble/RxTest (4.6.0):
+    - RxNimble/Core
+    - RxTest
   - RxRelay (5.0.1):
     - RxSwift (~> 5)
   - RxSwift (5.0.1)
+  - RxTest (5.0.1):
+    - RxSwift (~> 5)
   - Sourcery (0.17.0)
   - SwiftGen (6.1.0)
 
 DEPENDENCIES:
+  - Nimble (~> 8.0.1)
+  - Quick (~> 2.1.0)
   - RxCocoa (~> 5)
+  - RxNimble/RxBlocking (~> 4.6.0)
+  - RxNimble/RxTest (~> 4.6.0)
   - RxSwift (~> 5)
   - Sourcery
   - SwiftGen
 
 SPEC REPOS:
   trunk:
+    - Nimble
+    - Quick
+    - RxBlocking
     - RxCocoa
+    - RxNimble
     - RxRelay
     - RxSwift
+    - RxTest
     - Sourcery
     - SwiftGen
 
 SPEC CHECKSUMS:
+  Nimble: 18d5360282923225d62b09d781f63abc1a0111fc
+  Quick: 4be43f6634acfa727dd106bdf3929ce125ffa79d
+  RxBlocking: c5e090f42d046df8b0e7752742510f349963710f
   RxCocoa: e741b9749968e8a143e2b787f1dfbff2b63d0a5c
+  RxNimble: abdbe797eed9ed087df75fd72d52d1c7e96c875f
   RxRelay: 89d54507f4fd4d969e6ec1d4bd7f3673640b4640
   RxSwift: e2dc62b366a3adf6a0be44ba9f405efd4c94e0c4
+  RxTest: 0132f952a61da82d5233abedaa559df91e5330e5
   Sourcery: 3ed61be7c8a1218fce349266139379dba477efe0
   SwiftGen: f872ca75cbd17bf7103c17f13dcfa0d9a15667b0
 
-PODFILE CHECKSUM: 935c61c51adfece99d942d44d2a8d4e8e7e871c9
+PODFILE CHECKSUM: cea58dd43f320a0c33612d1bc5d5dddd7e14b00a
 
 COCOAPODS: 1.8.4
