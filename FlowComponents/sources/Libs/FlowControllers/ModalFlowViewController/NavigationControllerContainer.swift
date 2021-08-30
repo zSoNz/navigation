@@ -12,7 +12,7 @@ import UIKitLib
 import RxSwift
 import RxCocoa
 
-open class NavigationControllerContainer<Presenter: NavigationControllerPresenter, EventAction: FlowEventAction>: UIViewController, FlowViewControllerOutEvent, UINavigationControllerDelegate {
+open class NavigationControllerContainer<Presenter: NavigationControllerPresenter, EventAction: FlowEventAction>: UIViewController, FlowViewControllerOutEvent, UINavigationControllerDelegate, UIGestureRecognizerDelegate {
     
     public typealias EventEmitter = Observable<EventAction>
     
@@ -34,6 +34,13 @@ open class NavigationControllerContainer<Presenter: NavigationControllerPresente
         return self.contentController.viewControllers
     }
     
+    public let disposeBag = DisposeBag()
+    
+    // MARK: -
+    // MARK: Internal
+    
+    internal var needHide = true
+
     // MARK: - Private methods
     
     private let eventEmitter = PublishSubject<EventAction>()
@@ -48,9 +55,8 @@ open class NavigationControllerContainer<Presenter: NavigationControllerPresente
         self.presenter = presenter
         let contentController = UINavigationController()
         self.contentController = contentController
+        
         super.init(nibName: nil, bundle: nil)
-        contentController.delegate = self
-        contentController.interactivePopGestureRecognizer?.isEnabled = true
     }
     
     required public init?(coder aDecoder: NSCoder) {
@@ -61,6 +67,7 @@ open class NavigationControllerContainer<Presenter: NavigationControllerPresente
     
     open override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.addContainerController()
     }
     
@@ -119,11 +126,41 @@ open class NavigationControllerContainer<Presenter: NavigationControllerPresente
         return self.presenter.controllerInteractiveTransitioning
     }
     
+    public func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
+        if !self.needHide {
+            self.needHide = true
+            return false
+        }
+        
+        let isRoot = self.topViewController == self.viewControllers.first
+        let isTopNavigation = self.topViewController is NavigationControllerContainer
+        
+        if isRoot && !isTopNavigation {
+            let parent = (self.navigationController?.parent as? NavigationControllerContainer)
+            parent?.popViewController(animated: true)
+            parent?.needHide = false
+            
+            return false
+        }
+        
+        return self.viewControllers.count > 1 && (!isTopNavigation || isRoot)
+    }
+    
+    public func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        true
+    }
+    
     // MARK: - Private methods
     
     private func addContainerController() {
         let containerController = self.contentController
 //        containerController.setNavigationBarHidden(true, animated: false)
         self.idp.addChild(childController: containerController)
+        contentController.delegate = self
+        contentController.interactivePopGestureRecognizer?.isEnabled = true
+        contentController.interactivePopGestureRecognizer?.delegate = self
+        
+        contentController.interactivePopGestureRecognizer
+            .map(self.view.addGestureRecognizer)
     }
 }
